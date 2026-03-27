@@ -5,13 +5,11 @@ public class fishPlayerInput : MonoBehaviour
 {
 
     public Transform fishCamera;
-    public float acceleration = 10;
+    private fishMovement movement;
 
-    private Rigidbody rb;
-
-    void Start()
+    void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        movement = GetComponent<fishMovement>();
     }
 
     void Update()
@@ -19,12 +17,7 @@ public class fishPlayerInput : MonoBehaviour
         float moveLeftRight = Input.GetAxis("Horizontal");
         float moveForwardBack = Input.GetAxis("Vertical");
 
-        Vector3 xAcceleration = fishCamera.right * moveLeftRight * Time.deltaTime * acceleration;
-        /*Vector3 forward = fishCamera.forward;
-        forward.y = 0;
-        forward.Normalize();*/
-        Vector3 zAcceleration = fishCamera.forward * moveForwardBack * Time.deltaTime * acceleration;
-
-        rb.linearVelocity += xAcceleration + zAcceleration;
+        Vector3 move = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack;
+        movement.applyMovement(move);
     }
 }

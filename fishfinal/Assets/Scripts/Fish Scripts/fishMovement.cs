@@ -3,10 +3,19 @@ using UnityEngine;
 public class fishMovement : MonoBehaviour
 {
 
-    public float speed;
-   
-    public void move(Vector3 direction)
+    public float acceleration = 10;
+
+    private Rigidbody rb;
+
+    void Start()
     {
-        transform.position += (Vector3)(direction * speed * Time.deltaTime);
+        rb = GetComponent<Rigidbody>();
+    }
+
+    public void applyMovement(Vector3 direction)
+    {
+        Vector3 accel = direction * Time.deltaTime * acceleration;
+
+        rb.linearVelocity += accel;
     }
 }
