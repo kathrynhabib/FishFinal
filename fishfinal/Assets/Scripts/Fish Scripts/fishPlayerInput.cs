@@ -20,11 +20,11 @@ public class fishPlayerInput : MonoBehaviour
         float moveForwardBack = Input.GetAxis("Vertical");
 
         Vector3 xAcceleration = fishCamera.right * moveLeftRight * Time.deltaTime * acceleration;
-        Vector3 forward = fishCamera.forward;
+        /*Vector3 forward = fishCamera.forward;
         forward.y = 0;
-        forward.Normalize();
-        Vector3 zAcceleration = forward * moveForwardBack * Time.deltaTime * acceleration;
+        forward.Normalize();*/
+        Vector3 zAcceleration = fishCamera.forward * moveForwardBack * Time.deltaTime * acceleration;
 
-        rb.angularVelocity += xAcceleration + zAcceleration;
+        rb.linearVelocity += xAcceleration + zAcceleration;
     }
 }
