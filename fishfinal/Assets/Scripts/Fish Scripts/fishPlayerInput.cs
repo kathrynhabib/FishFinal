@@ -17,7 +17,16 @@ public class fishPlayerInput : MonoBehaviour
         float moveLeftRight = Input.GetAxis("Horizontal");
         float moveForwardBack = Input.GetAxis("Vertical");
 
-        Vector3 move = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack;
+        float moveUpDown = 0f;
+
+        if (Input.GetKey(KeyCode.Space))
+            moveUpDown += 1f;
+
+        if (Input.GetKey(KeyCode.LeftControl))
+            moveUpDown -= 1f;
+
+
+        Vector3 move = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
         movement.applyMovement(move);
     }
 }

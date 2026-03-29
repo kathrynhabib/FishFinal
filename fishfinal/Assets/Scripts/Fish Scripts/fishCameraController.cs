@@ -17,6 +17,8 @@ public class fishCameraController : MonoBehaviour
     private float pitch;
     private float yaw;
 
+    public float cameraDistance = 0.2f;
+
     void Start()
     {
         pitch = 45;
@@ -34,7 +36,7 @@ public class fishCameraController : MonoBehaviour
         yaw += yawInput * Time.deltaTime * rotationSpeed;
         Quaternion yawRotation = Quaternion.AngleAxis(yaw, Vector3.up);
 
-        Vector3 offset = new Vector3(0, 0, -1);
+        Vector3 offset = new Vector3(0, 0, -(cameraDistance));
         offset = pitchRotation * offset;
         offset = yawRotation * offset;
 
