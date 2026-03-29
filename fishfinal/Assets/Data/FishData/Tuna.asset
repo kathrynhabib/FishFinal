@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
-  m_Name: Stingray
+  m_Name: Tuna
   m_EditorClassIdentifier: Assembly-CSharp::FishData
-  <FishName>k__BackingField: 
+  <FishName>k__BackingField: Tuna
   <FishDescription>k__BackingField: 
-  <Icon>k__BackingField: 
+  <Icon>k__BackingField: {fileID: 0}
