@@ -9,7 +9,7 @@ public class GuppyProfile : MonoBehaviour
     void Awake()
     {
         var fsm = GetComponent<fishFSM>();
-        fsm.detectionRadius = 6f;
+        fsm.detectionRadius = 2f;
         fsm.safeRadius      = 6f;
         fsm.idleMinDuration = 0.5f;
         fsm.idleMaxDuration = 2f;
