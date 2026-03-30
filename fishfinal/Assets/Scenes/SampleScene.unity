@@ -1513,6 +1513,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960392193}
   m_CullTransparentMesh: 1
+--- !u!1 &978402495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+  m_PrefabInstance: {fileID: 1794559000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &978402499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6, y: 0.6, z: 0.6}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &978402500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930325694b5cd1346bce6c163d38f3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishPlayerInput
+  fishCamera: {fileID: 330585546}
+--- !u!114 &978402501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a41072c6d7d7ec4ba454c6ccfcd3fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishMovement
+  acceleration: 10
+--- !u!114 &978402502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishDataController
+  fishData: {fileID: 0}
+  isPlayer: 0
+  mainCamera: {fileID: 0}
+  FishDiscoveryManager: {fileID: 0}
+--- !u!114 &978402503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ba423c47d514d8d9b04fc448a95c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishFSM
+  detectionRadius: 8
+  safeRadius: 14
+  idleMinDuration: 1.5
+  idleMaxDuration: 4
+  currentState: 0
+--- !u!114 &978402504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishPatrol
+  patrolCenter: {x: 0, y: 0, z: 0}
+  patrolExtents: {x: 10, y: 4, z: 10}
+  arrivalDistance: 1.5
 --- !u!1 &1012835131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,9 +2540,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3270957785964087377, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1979043717}
     - target: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       propertyPath: m_Name
       value: freshWater_guppy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      propertyPath: m_TagString
+      value: fish
       objectReference: {fileID: 0}
     - target: {fileID: 4604972887363670765, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2487,7 +2595,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402503}
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402502}
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402501}
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402500}
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402499}
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402504}
   m_SourcePrefab: {fileID: 100100000, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
 --- !u!1 &1805741337
 GameObject:
@@ -2902,6 +3028,43 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
   m_PrefabInstance: {fileID: 2076055498}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1979043726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979043717}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 0.8, z: 0.8}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1979043727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979043717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishDataController
+  fishData: {fileID: 0}
+  isPlayer: 1
+  mainCamera: {fileID: 330585545}
+  FishDiscoveryManager: {fileID: 0}
 --- !u!1 &2026312927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,6 +3177,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: testplayer_2
       objectReference: {fileID: 0}
+    - target: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_TagString
+      value: fish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3027,6 +3194,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1979043718}
+    - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1979043727}
+    - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1979043726}
   m_SourcePrefab: {fileID: 100100000, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
 --- !u!1 &2080232350
 GameObject:
