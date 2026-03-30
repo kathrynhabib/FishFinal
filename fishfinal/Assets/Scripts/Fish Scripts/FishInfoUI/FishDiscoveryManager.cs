@@ -21,9 +21,9 @@ public class FishDiscoveryManager : MonoBehaviour
         Instance = this;
     }
 
-    // when the player "becomes" a new fish.
     public void Discover(fishData data)
     {
+
         bool isNew = discovered.Add(data);
 
         if (isNew)
@@ -31,6 +31,11 @@ public class FishDiscoveryManager : MonoBehaviour
             infoPopup.Show(data); // show the info popup
             counter.UpdateCount(discovered.Count, totalFish);  
         }
+        Debug.Log("Discover called for: " + data.fishName);
+        Debug.Log("infoPopup is: " + infoPopup);  // add this
+        Debug.Log("data is: " + data);            // add this
+
+        
     }
 
     public HashSet<fishData> GetDiscoveredFish()

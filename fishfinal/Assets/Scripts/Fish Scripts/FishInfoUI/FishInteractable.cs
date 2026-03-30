@@ -3,12 +3,7 @@ using UnityEngine;
 
 public class FishInteractable : MonoBehaviour
 {
-/* Attach this to each NPC fish in the scene.
--  When the player swims into it, they "become" that fish:
-- discovery is logged
-- the info popup fires
-- the player's mesh swaps to this fish's appearance
-*/   
+
 
     public fishData data;
 
@@ -17,7 +12,7 @@ public class FishInteractable : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("fish")) return;
 
         FishDiscoveryManager.Instance.Discover(data);
 
@@ -30,9 +25,16 @@ public class FishInteractable : MonoBehaviour
 }
 
 /*NOTES
-remember to tag  player GameObject "Player" in  Inspector
+remember to tag  player GameObject "fish" in  Inspector
 onTriggerEnter: logs the discovery (popup + counter update happen inside Discover())
 swaps the player's visible mesh to look like new fish
 now that player has become new fishmesh, destroy the old one to avoid repeat discoveries
 */
 
+
+/* Attach this to each NPC fish in the scene.
+-  When the player swims into it, they "become" that fish:
+- discovery is logged
+- the info popup fires
+- the player's mesh swaps to this fish's appearance
+*/   

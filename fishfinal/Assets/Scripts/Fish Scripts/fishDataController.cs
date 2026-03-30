@@ -17,10 +17,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         movement = GetComponent<fishMovement>();
         playerInput = GetComponent<fishPlayerInput>();
         behavior = GetComponent<fishBehavior>();
-
         updateControlState();
-        //FishDiscoveryManager.Instance.Discover(fishData);
-
     }
 
     // Update is called once per frame
@@ -72,6 +69,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         target.isPlayer = true;
         target.updateControlState();
+        FishDiscoveryManager.Instance.Discover(target.fishData); 
 
     }
 
