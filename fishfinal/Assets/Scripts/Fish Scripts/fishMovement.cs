@@ -11,10 +11,6 @@ public class fishMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-    void Update()
-    {
-        Debug.Log("Velocity: " + rb.linearVelocity);
-    }
 
     public void applyMovement(Vector3 direction)
     {
