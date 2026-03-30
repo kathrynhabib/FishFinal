@@ -32,4 +32,9 @@ public class FishDiscoveryManager : MonoBehaviour
             counter.UpdateCount(discovered.Count, totalFish);  
         }
     }
+
+    public HashSet<fishData> GetDiscoveredFish()
+    {
+        return discovered;
+    }
 }
