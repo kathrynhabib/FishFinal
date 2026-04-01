@@ -367,7 +367,7 @@ MonoBehaviour:
   minPitch: -80
   maxPitch: 80
   rotationSpeed: 300
-  cameraDistance: 0.07
+  cameraDistance: 0.2
 --- !u!1 &347115420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'fish name '
+  m_text: Clownfish
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1552,8 +1552,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishPlayerInput
   fishCamera: {fileID: 330585546}
-  acceleration: 10
-  turnSpeed: 3
 --- !u!114 &978402501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,7 +1577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishDataController
-  fishData: {fileID: 11400000, guid: 9296444714d17468f8cfbd1118446db7, type: 2}
+  fishData: {fileID: 0}
   isPlayer: 0
   mainCamera: {fileID: 0}
   FishDiscoveryManager: {fileID: 0}
@@ -1615,45 +1613,6 @@ MonoBehaviour:
   patrolCenter: {x: 0, y: 0, z: 0}
   patrolExtents: {x: 10, y: 4, z: 10}
   arrivalDistance: 1.5
---- !u!114 &978402508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978402495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishBehavior
---- !u!54 &978402509
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978402495}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1012835131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,7 +1873,6 @@ GameObject:
   - component: {fileID: 1086681824}
   - component: {fileID: 1086681826}
   - component: {fileID: 1086681825}
-  - component: {fileID: 1086681827}
   m_Layer: 5
   m_Name: PopupPanel
   m_TagString: Untagged
@@ -1936,7 +1894,6 @@ RectTransform:
   m_Children:
   - {fileID: 837490017}
   - {fileID: 2080232351}
-  - {fileID: 1517327390}
   - {fileID: 1805741338}
   m_Father: {fileID: 347115424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1983,18 +1940,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086681823}
   m_CullTransparentMesh: 1
---- !u!225 &1086681827
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086681823}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1090097064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,81 +2343,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
---- !u!1 &1517327389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1517327390}
-  - component: {fileID: 1517327392}
-  - component: {fileID: 1517327391}
-  m_Layer: 5
-  m_Name: Fish Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1517327390
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517327389}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1086681824}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.886, y: -18.932}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1517327391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517327389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1517327392
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517327389}
-  m_CullTransparentMesh: 1
 --- !u!1 &1604447016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,10 +2544,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1979043717}
-    - target: {fileID: 3270957785964087377, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
-      propertyPath: _autoMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       propertyPath: m_Name
       value: freshWater_guppy
@@ -2748,12 +2614,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 978402504}
-    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 978402508}
-    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 978402509}
   m_SourcePrefab: {fileID: 100100000, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
 --- !u!1 &1805741337
 GameObject:
@@ -3070,8 +2930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27b94cedaca94593b70e12d46cb1fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishInfoPopup
-  canvasGroup: {fileID: 1086681827}
-  fishImage: {fileID: 1517327391}
+  popupPanel: {fileID: 1086681823}
+  fishImage: {fileID: 0}
   fishNameText: {fileID: 837490018}
   fishFactText: {fileID: 2080232352}
   closeButton: {fileID: 1805741339}
@@ -3123,8 +2983,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishPlayerInput
   fishCamera: {fileID: 330585546}
-  acceleration: 10
-  turnSpeed: 3
 --- !u!114 &1979043719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3132,7 +2990,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979043717}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a41072c6d7d7ec4ba454c6ccfcd3fae, type: 3}
   m_Name: 
@@ -3148,7 +3006,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3159,7 +3017,7 @@ Rigidbody:
     serializedVersion: 2
     m_Bits: 0
   m_ImplicitCom: 1
-  m_ImplicitTensor: 0
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3203,22 +3061,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishDataController
-  fishData: {fileID: 11400000, guid: 1cb13c0bc10b2442986c139fc9bf95ee, type: 2}
+  fishData: {fileID: 0}
   isPlayer: 1
   mainCamera: {fileID: 330585545}
   FishDiscoveryManager: {fileID: 0}
---- !u!114 &1979043730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979043717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishBehavior
 --- !u!1 &2026312927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,20 +3126,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -316336531736412219, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -316336531736412219, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       propertyPath: _autoMotion
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -316336531736412219, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       propertyPath: _targetReachMode
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1164355389905266549, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3362,9 +3200,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1979043726}
-    - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1979043730}
   m_SourcePrefab: {fileID: 100100000, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
 --- !u!1 &2080232350
 GameObject:
@@ -3423,7 +3258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: fish fact
+  m_text: Nemo is a clownfish :)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
