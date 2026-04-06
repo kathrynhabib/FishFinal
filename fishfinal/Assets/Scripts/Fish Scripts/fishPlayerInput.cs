@@ -8,20 +8,21 @@ public class fishPlayerInput : MonoBehaviour
 
     public float acceleration = 10;
     public float turnSpeed = 3f; // turning speed of the fish
+    public float slowingSpeed = .99f;
+    public float maxSpeed = 1.5f; // should vary per fish
 
     private Rigidbody rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
     }
 
     void Update()
     {
         handleMovement();
         handleRotation();
-    
+
     }
     void handleMovement()
     {
@@ -38,26 +39,22 @@ public class fishPlayerInput : MonoBehaviour
 
 
         Vector3 move = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
-        if (move.magnitude > 0.01f)
+        if (move.magnitude > 0.01f && move.magnitude < maxSpeed)
         {
             Vector3 accel = move * Time.deltaTime * acceleration;
             rb.linearVelocity += accel;
         }
         else
         {
-            rb.linearVelocity = Vector3.zero;
+            rb.linearVelocity *= slowingSpeed;
         }
     }
-    void handleRotation()
+    void handleRotation() 
     {
-        float turnSpeed = 3f;
 
-        Vector3 lookDir = fishCamera.forward;
+        Quaternion targetRotation = Quaternion.LookRotation(fishCamera.forward, Vector3.up);
+        rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSpeed * Time.deltaTime);
 
-        if (lookDir.sqrMagnitude > 0.001f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(lookDir, Vector3.up);
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSpeed * Time.deltaTime);
-        }
     }
+
 }

@@ -1554,19 +1554,8 @@ MonoBehaviour:
   fishCamera: {fileID: 330585546}
   acceleration: 10
   turnSpeed: 3
---- !u!114 &978402501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978402495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a41072c6d7d7ec4ba454c6ccfcd3fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishMovement
-  acceleration: 10
+  slowingSpeed: 0.995
+  maxSpeed: 1.5
 --- !u!114 &978402502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,40 +1570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::fishDataController
   fishData: {fileID: 11400000, guid: 9296444714d17468f8cfbd1118446db7, type: 2}
   isPlayer: 0
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 330585545}
   FishDiscoveryManager: {fileID: 0}
---- !u!114 &978402503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978402495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ba423c47d514d8d9b04fc448a95c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishFSM
-  detectionRadius: 8
-  safeRadius: 14
-  idleMinDuration: 1.5
-  idleMaxDuration: 4
-  currentState: 0
---- !u!114 &978402504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978402495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishPatrol
-  patrolCenter: {x: 0, y: 0, z: 0}
-  patrolExtents: {x: 10, y: 4, z: 10}
-  arrivalDistance: 1.5
 --- !u!114 &978402508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,7 +1594,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 3.43
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1654,6 +1611,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &978402518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishPatrol
+  patrolCenter: {x: 0, y: 0, z: 0}
+  patrolExtents: {x: 10, y: 4, z: 10}
+  arrivalDistance: 1.5
+--- !u!114 &978402519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ba423c47d514d8d9b04fc448a95c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishFSM
+  detectionRadius: 8
+  safeRadius: 14
+  idleMinDuration: 1.5
+  idleMaxDuration: 4
+  currentState: 0
 --- !u!1 &1012835131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,13 +2721,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 978402503}
-    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 978402502}
-    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 978402501}
     - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 978402500}
@@ -2747,13 +2730,16 @@ PrefabInstance:
       addedObject: {fileID: 978402499}
     - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 978402504}
+      addedObject: {fileID: 978402509}
     - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 978402508}
     - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 978402509}
+      addedObject: {fileID: 978402519}
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402518}
   m_SourcePrefab: {fileID: 100100000, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
 --- !u!1 &1805741337
 GameObject:
@@ -3125,19 +3111,8 @@ MonoBehaviour:
   fishCamera: {fileID: 330585546}
   acceleration: 10
   turnSpeed: 3
---- !u!114 &1979043719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979043717}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a41072c6d7d7ec4ba454c6ccfcd3fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishMovement
-  acceleration: 10
+  slowingSpeed: 0.995
+  maxSpeed: 1.5
 --- !u!54 &1979043720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3148,7 +3123,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0
+  m_AngularDamping: 3.96
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3207,7 +3182,7 @@ MonoBehaviour:
   isPlayer: 1
   mainCamera: {fileID: 330585545}
   FishDiscoveryManager: {fileID: 0}
---- !u!114 &1979043730
+--- !u!114 &1979043733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3219,6 +3194,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishBehavior
+--- !u!114 &1979043736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979043717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ba423c47d514d8d9b04fc448a95c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishFSM
+  detectionRadius: 8
+  safeRadius: 14
+  idleMinDuration: 1.5
+  idleMaxDuration: 4
+  currentState: 0
+--- !u!114 &1979043737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979043717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishPatrol
+  patrolCenter: {x: 0, y: 0, z: 0}
+  patrolExtents: {x: 10, y: 4, z: 10}
+  arrivalDistance: 1.5
 --- !u!1 &2026312927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,9 +3359,6 @@ PrefabInstance:
       addedObject: {fileID: 1979043720}
     - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1979043719}
-    - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1979043718}
     - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       insertIndex: -1
@@ -3364,7 +3368,13 @@ PrefabInstance:
       addedObject: {fileID: 1979043726}
     - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1979043730}
+      addedObject: {fileID: 1979043737}
+    - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1979043736}
+    - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1979043733}
   m_SourcePrefab: {fileID: 100100000, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
 --- !u!1 &2080232350
 GameObject:

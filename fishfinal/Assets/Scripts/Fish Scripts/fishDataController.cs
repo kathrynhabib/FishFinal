@@ -8,15 +8,13 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     public Camera mainCamera;
     public FishDiscoveryManager FishDiscoveryManager;
 
-    private fishMovement movement;
-    private fishBehavior behavior; // ai behavior
+    private fishBehavior aiBehavior; // ai behavior
     private fishPlayerInput playerInput;
 
     void Start()
     {
-        movement = GetComponent<fishMovement>();
         playerInput = GetComponent<fishPlayerInput>();
-        behavior = GetComponent<fishBehavior>();
+        aiBehavior = GetComponent<fishBehavior>();
         updateControlState();
     }
 
@@ -33,13 +31,14 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     void updateControlState()
     {
         playerInput.enabled = isPlayer;
-        behavior.enabled = !isPlayer;
+
+        if (!isPlayer) aiBehavior.enable();
+        else aiBehavior.disable();
     }
 
     // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), allow switch
     private void trySwitchFish()
     {
-        Debug.Log("checking if switchable");
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
@@ -47,13 +46,11 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         if (Physics.SphereCast(ray, 1.5f, out hit, maxDistance))
         {
-            Debug.Log("spherecast hit!");
 
             fishDataController targetFish = hit.collider.GetComponent<fishDataController>();
 
             if (targetFish != null && targetFish != this && targetFish.tag == "fish")
             {
-                Debug.Log("switching to target fish");
                 playerSwitch(targetFish);
             }
         }
@@ -61,6 +58,8 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     void playerSwitch(fishDataController target)
     {
+        // enable fishMotion when switching to ai behavior
+        // not using fishMotion for player behavior
         fishCameraController camera = mainCamera.GetComponent<fishCameraController>();
         camera.target = target.transform;
 

@@ -29,7 +29,7 @@ namespace FishAlive
                 
         private Animator _animator;
         [SerializeField, Tooltip("If enabled, the fish moves automatically using its internal logic. If disabled, motion must be controlled externally.")] 
-        private bool _autoMotion = false;
+        private bool _autoMotion = true;
         [SerializeField, Tooltip("Enables or disables the obstacle avoidance system.")] 
         private bool _avoidanceEnabled = false;
 
