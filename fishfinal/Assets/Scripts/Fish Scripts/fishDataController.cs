@@ -11,6 +11,9 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     private fishBehavior aiBehavior; // ai behavior
     private fishPlayerInput playerInput;
 
+    // for adding confirmation for switching
+    private fishDataController selectedFish;
+
     void Start()
     {
         playerInput = GetComponent<fishPlayerInput>();
@@ -25,7 +28,11 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            trySwitchFish();
+            handleSelection();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            clearSelection();
         }
     }
     void updateControlState()
@@ -36,8 +43,22 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         else aiBehavior.disable();
     }
 
-    // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), allow switch
-    private void trySwitchFish()
+    
+    // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), select.
+    // hit left shift again to confirm switch
+    private void handleSelection()
+    {
+        if(selectedFish == null)
+        {
+            trySelectFish();
+        }
+        else
+        {
+            trySwitchFish(selectedFish);
+            clearSelection();
+        }
+    }
+    private void trySelectFish()
     {
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
@@ -46,30 +67,58 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         if (Physics.SphereCast(ray, 1.5f, out hit, maxDistance))
         {
-
             fishDataController targetFish = hit.collider.GetComponent<fishDataController>();
 
             if (targetFish != null && targetFish != this && targetFish.tag == "fish")
             {
-                playerSwitch(targetFish);
+                selectedFish = targetFish;
+                Debug.Log("selected target fish, lshift again to confirm");
+                // i think here we can also add a ui popup that temporarilty freezes the screen asking the player to confirm or exit
+                highlightSelection();
             }
         }
     }
 
-    void playerSwitch(fishDataController target)
+    void trySwitchFish(fishDataController selectedFish)
     {
         // enable fishMotion when switching to ai behavior
         // not using fishMotion for player behavior
         fishCameraController camera = mainCamera.GetComponent<fishCameraController>();
-        camera.target = target.transform;
+        camera.target = selectedFish.transform;
 
         isPlayer = false;
         updateControlState();
 
-        target.isPlayer = true;
-        target.updateControlState();
-        FishDiscoveryManager.Instance.Discover(target.fishData); 
+        selectedFish.isPlayer = true;
+        selectedFish.updateControlState();
+        FishDiscoveryManager.Instance.Discover(selectedFish.fishData); 
 
+    }
+
+    void highlightSelection()
+    {
+        Debug.Log("highlighting selected fish");
+        Renderer r = selectedFish.GetComponentInChildren<Renderer>();
+        if (r != null)
+        {
+            r.material.color = Color.yellow;
+        }
+    }
+
+    void unhighlightSelection()
+    {
+        Debug.Log("unhighlighting");
+        Renderer r = selectedFish.GetComponentInChildren<Renderer>();
+        if (r != null)
+        {
+            r.material.color = Color.white;
+        }
+    }
+
+    void clearSelection()
+    {
+        unhighlightSelection();
+        selectedFish = null;
     }
 
 
