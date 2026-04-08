@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class EncyclopediaManagerScript : MonoBehaviour
 {
+    public static EncyclopediaManagerScript Instance { get; private set; }
+    
     [SerializeField] public GameObject EncyclopediaEntry;
     [SerializeField] public Transform Content;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        printEntries();
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
-        
+        printEntries();
     }
 
     public void printEntries()

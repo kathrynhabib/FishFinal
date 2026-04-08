@@ -23,7 +23,7 @@ public class EncyclopediaEntry : MonoBehaviour
     public void Setup(FishData data)
     {
         fishImage.sprite = data.fishImage;
-        fishNameText.text = data.FishName;
+        fishNameText.text = data.fishName;
         fishFactText.text = data.fishFact;
     }
 }
