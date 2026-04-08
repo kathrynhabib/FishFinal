@@ -1,0 +1,69 @@
+using UnityEngine;
+using TMPro;
+using System;
+
+
+public class SwitchConfirmPopup : MonoBehaviour
+{
+    public static SwitchConfirmPopup Instance { get; private set; }
+
+    [Header("UI References")]
+    public GameObject panel;       // drag SwitchConfirmPanel here
+    public TMP_Text promptText;    // drag PromptText here
+
+    private Action onConfirm;
+    private Action onCancel;
+
+    public bool IsOpen { get; private set; }
+
+    /*
+    CLAUDE AI GENERATED THE CODE BELOW 
+    */
+    void Awake()
+    {
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
+    }
+
+    public void Show(string fishName, Action confirmCallback, Action cancelCallback)
+    {
+        promptText.text = "Switch to " + fishName + "?";
+        onConfirm = confirmCallback;
+        onCancel = cancelCallback;
+
+        panel.SetActive(true);
+        Time.timeScale = 0f;
+        IsOpen = true;
+    }
+
+    // Wire this to ConfirmButton's OnClick in the Inspector
+    public void Confirm()
+    {
+        Close();
+        onConfirm?.Invoke();
+    }
+
+    // Wire this to CancelButton's OnClick in the Inspector
+    public void Cancel()
+    {
+        Close();
+        onCancel?.Invoke();
+    }
+
+    void Close()
+    {
+        panel.SetActive(false);
+        Time.timeScale = 1f;
+        IsOpen = false;
+    }
+
+    void Update()
+    {
+        if (!IsOpen) return;
+
+        // second Shift press confirms
+        if (Input.GetKeyDown(KeyCode.LeftShift)) Confirm();
+        // Escape cancels
+        if (Input.GetKeyDown(KeyCode.Escape))    Cancel();
+    }
+}
