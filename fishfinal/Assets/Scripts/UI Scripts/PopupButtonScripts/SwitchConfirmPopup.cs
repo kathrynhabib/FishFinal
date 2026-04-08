@@ -8,8 +8,8 @@ public class SwitchConfirmPopup : MonoBehaviour
     public static SwitchConfirmPopup Instance { get; private set; }
 
     [Header("UI References")]
-    public GameObject panel;       // drag SwitchConfirmPanel here
-    public TMP_Text promptText;    // drag PromptText here
+    public GameObject panel;       
+    public TMP_Text promptText;    
 
     private Action onConfirm;
     private Action onCancel;
