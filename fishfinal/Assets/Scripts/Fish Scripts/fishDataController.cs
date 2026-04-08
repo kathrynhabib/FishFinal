@@ -12,14 +12,11 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     // for adding confirmation for switching
     private fishDataController selectedFish;
-    private Outline outline;
 
     void Start()
     {
         playerInput = GetComponent<fishPlayerInput>();
         aiBehavior = GetComponent<fishBehavior>();
-        outline = GetComponent<Outline>();
-        outline.enabled = false;
         updateControlState();
     }
 
@@ -100,18 +97,20 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     void highlightSelection()
     {
         Debug.Log("highlighting selected fish");
-        if (outline != null)
+        Renderer r = selectedFish.GetComponentInChildren<Renderer>();
+        if (r != null)
         {
-            selectedFish.outline.enabled = true;
+            r.material.color = Color.yellow;
         }
     }
 
     void unhighlightSelection()
     {
         Debug.Log("unhighlighting");
-        if (outline != null)
+        Renderer r = selectedFish.GetComponentInChildren<Renderer>();
+        if (r != null)
         {
-            selectedFish.outline.enabled = false;
+            r.material.color = Color.white;
         }
     }
 
