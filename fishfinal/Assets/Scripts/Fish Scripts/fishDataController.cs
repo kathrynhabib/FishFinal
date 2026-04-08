@@ -6,7 +6,6 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     public fishData fishData;
     public bool isPlayer;
     public Camera mainCamera;
-    public FishDiscoveryManager FishDiscoveryManager;
 
     private fishBehavior aiBehavior; // ai behavior
     private fishPlayerInput playerInput;
