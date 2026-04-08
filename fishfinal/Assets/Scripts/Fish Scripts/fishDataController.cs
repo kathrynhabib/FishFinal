@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class fishDataController : MonoBehaviour // contains the data bound to each fish and helps activate/ deactivate it as a player
 {
-    public fishData fishData;
+    public FishData FishData;
     public bool isPlayer;
     public Camera mainCamera;
     public FishDiscoveryManager FishDiscoveryManager;
@@ -94,7 +94,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         selectedFish.isPlayer = true;
         selectedFish.updateControlState();
-        FishDiscoveryManager.Instance.Discover(selectedFish.fishData); 
+        FishDiscoveryManager.Instance.Discover(selectedFish.FishData); 
 
     }
 

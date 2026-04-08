@@ -5,7 +5,7 @@ public class FishInteractable : MonoBehaviour
 {
 
 
-    public fishData data;
+    public FishData data;
 
     //  player's renderer will swap to new mesh on contact.
     public Mesh fishMesh;

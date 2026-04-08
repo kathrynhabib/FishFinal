@@ -5,6 +5,6 @@ using UnityEngine;
 public class FishData : ScriptableObject
 {
     [field:SerializeField] public string FishName {get; private set;}
-    [field:SerializeField] public string FishDescription {get; private set;}
-    [field:SerializeField] public Sprite Icon {get; private set;}
+    [field:SerializeField] public string fishFact {get; private set;}
+    [field:SerializeField] public Sprite fishImage {get; private set;}
 }

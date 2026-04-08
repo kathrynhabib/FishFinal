@@ -11,7 +11,7 @@ public class FishDiscoveryManager : MonoBehaviour
 
     public FishInfoPopup infoPopup;
     public FishCounter counter;
-    private HashSet<fishData> discovered = new HashSet<fishData>();
+    private HashSet<FishData> discovered = new HashSet<FishData>();
 
     public int totalFish = 10;   // REMEMBER TO CHANGE 
 
@@ -21,7 +21,7 @@ public class FishDiscoveryManager : MonoBehaviour
         Instance = this;
     }
 
-    public void Discover(fishData data)
+    public void Discover(FishData data)
     {
 
         bool isNew = discovered.Add(data);
@@ -32,13 +32,13 @@ public class FishDiscoveryManager : MonoBehaviour
             counter.UpdateCount(discovered.Count, totalFish);  
         }
         //CHATGPT GENERATED THESE DEBUG LOGS TO HELP ME FIGURE OUT WHY THE DISCOVERY WASN'T WORKING
-        Debug.Log("Discover called for: " + data.fishName);
+        Debug.Log("Discover called for: " + data.FishName);
         Debug.Log("infoPopup is: " + infoPopup);  
         Debug.Log("data is: " + data);            
 
     }
 
-    public HashSet<fishData> GetDiscoveredFish()
+    public HashSet<FishData> GetDiscoveredFish()
     {
         return discovered;
     }

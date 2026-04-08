@@ -24,10 +24,10 @@ public class FishInfoPopup : MonoBehaviour
     }
 
     [ContextMenu("Test Show")]  // for testing in inspector
-    public void Show(fishData data)
+    public void Show(FishData data)
     {
         fishImage.sprite = data.fishImage;
-        fishNameText.text = data.fishName;
+        fishNameText.text = data.FishName;
         fishFactText.text = data.fishFact;
 
         canvasGroup.alpha = 1f;

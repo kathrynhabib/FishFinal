@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishDataController
-  fishData: {fileID: 11400000, guid: 9296444714d17468f8cfbd1118446db7, type: 2}
+  FishData: {fileID: 0}
   isPlayer: 0
   mainCamera: {fileID: 330585545}
   FishDiscoveryManager: {fileID: 0}
@@ -1931,7 +1931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1086681824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3067,7 +3067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31df8ee592cc2467fb5f61658f902882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishCounter
-  counterText: {fileID: 1332786582}
+  counterText: {fileID: 0}
 --- !u!114 &1923088742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3080,11 +3080,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27b94cedaca94593b70e12d46cb1fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishInfoPopup
-  canvasGroup: {fileID: 1086681827}
-  fishImage: {fileID: 1517327391}
-  fishNameText: {fileID: 837490018}
-  fishFactText: {fileID: 2080232352}
-  closeButton: {fileID: 1805741339}
+  canvasGroup: {fileID: 0}
+  fishImage: {fileID: 0}
+  fishNameText: {fileID: 0}
+  fishFactText: {fileID: 0}
+  closeButton: {fileID: 0}
 --- !u!114 &1923088743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3097,9 +3097,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a587a6f265cf14c01ac366cfbe979c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishDiscoveryManager
-  infoPopup: {fileID: 1923088742}
-  counter: {fileID: 1923088741}
-  totalFish: 2
+  infoPopup: {fileID: 0}
+  counter: {fileID: 0}
+  totalFish: 10
 --- !u!4 &1923088744
 Transform:
   m_ObjectHideFlags: 0
@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishDataController
-  fishData: {fileID: 11400000, guid: 1cb13c0bc10b2442986c139fc9bf95ee, type: 2}
+  FishData: {fileID: 0}
   isPlayer: 1
   mainCamera: {fileID: 330585545}
   FishDiscoveryManager: {fileID: 0}

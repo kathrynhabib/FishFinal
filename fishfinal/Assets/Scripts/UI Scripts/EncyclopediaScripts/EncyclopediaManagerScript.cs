@@ -8,7 +8,7 @@ public class EncyclopediaManagerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        printEntries();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class EncyclopediaManagerScript : MonoBehaviour
 
         var discoveredFish = FishDiscoveryManager.Instance.GetDiscoveredFish();
 
-        foreach (fishData fish in discoveredFish)
+        foreach (FishData fish in discoveredFish)
         {
             GameObject entry = Instantiate(EncyclopediaEntry, Content);
             entry.GetComponent<EncyclopediaEntry>().Setup(fish);
