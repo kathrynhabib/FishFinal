@@ -23,15 +23,21 @@ public class FishDiscoveryManager : MonoBehaviour
 
     public void Discover(FishData data)
     {
+        Debug.Log("Discover called with: " + data.fishName);
         bool isNew = discovered.Add(data);
+         Debug.Log("Is new: " + isNew + " | Total discovered: " + discovered.Count);
 
         if (isNew)
-        {   //SOURCE: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.messagebox.show?view=windowsdesktop-10.0
-            infoPopup.Show(data); // show the info popup
-            counter.UpdateCount(discovered.Count, totalFish);  
-            EncyclopediaManagerScript.Instance.printEntries(); 
+        {
+            if (infoPopup != null) infoPopup.Show(data);
+            else Debug.LogError("infoPopup is null!");
+
+            if (counter != null) counter.UpdateCount(discovered.Count, totalFish);
+            else Debug.LogError("counter is null!");
+
+            if (EncyclopediaManagerScript.Instance != null) EncyclopediaManagerScript.Instance.printEntries();
+            else Debug.LogError("EncyclopediaManagerScript.Instance is null!");
         }
-        
     }
 
     public HashSet<FishData> GetDiscoveredFish()
