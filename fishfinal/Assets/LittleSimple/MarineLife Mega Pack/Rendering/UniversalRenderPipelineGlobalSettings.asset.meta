@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 753384f47b607e245bb5e368e61f25aa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 279697
+  packageName: MarineLife Mega Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/LittleSimple/MarineLife Mega Pack/Rendering/UniversalRenderPipelineGlobalSettings.asset
+  uploadId: 659793

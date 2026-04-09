@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cc7bce8e79f205e47b75cfd119f5138e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 279697
+  packageName: MarineLife Mega Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/LittleSimple/MarineLife Mega Pack/Scripts/Flock.cs
+  uploadId: 659793
