@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class fishDataController : MonoBehaviour // contains the data bound to each fish and helps activate/ deactivate it as a player
 {
@@ -10,10 +11,16 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     private fishBehavior aiBehavior; // ai behavior
     private fishPlayerInput playerInput;
 
+    // for adding confirmation for switching
+    private fishDataController selectedFish;
+    private Outline outline;
+
     void Start()
     {
         playerInput = GetComponent<fishPlayerInput>();
         aiBehavior = GetComponent<fishBehavior>();
+        outline = GetComponent<Outline>();
+        outline.enabled = false;
         updateControlState();
 
         Debug.Log("fishDataController Start on: " + gameObject.name + " | isPlayer: " + isPlayer);
@@ -28,9 +35,11 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     {
         if (!isPlayer) return;
 
+        if (SwitchConfirmPopup.Instance != null && SwitchConfirmPopup.Instance.IsOpen) return;
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            trySwitchFish();
+            trySelectFish();
         }
     }
     void updateControlState()
@@ -41,8 +50,10 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         else aiBehavior.disable();
     }
 
-    // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), allow switch
-    private void trySwitchFish()
+
+    // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), select.
+    // hit left shift again to confirm switch
+    private void trySelectFish()
     {
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
@@ -52,29 +63,70 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         if (Physics.SphereCast(ray, 1.5f, out hit, maxDistance))
         {
 
-            fishDataController targetFish = hit.collider.GetComponent<fishDataController>();
+            fishDataController targetFish = hit.collider.GetComponentInParent<fishDataController>();
 
             if (targetFish != null && targetFish != this && targetFish.tag == "fish")
             {
-                playerSwitch(targetFish);
+                selectedFish = targetFish;
+                highlightSelection();
+
+                Debug.Log("selected target fish, lshift again to confirm");
+                // i think here we can also add a ui popup that temporarilty freezes the screen asking the player to confirm or exit
+                SwitchConfirmPopup.Instance.Show(targetFish.FishData.fishName,
+                    () =>
+                    {
+                        trySwitchFish(targetFish);
+                        clearSelection();
+                    },
+                    () =>
+                    {
+                        clearSelection();
+                    }
+                );
+
             }
         }
     }
 
-    void playerSwitch(fishDataController target)
+    void trySwitchFish(fishDataController selectedFish)
     {
         // enable fishMotion when switching to ai behavior
         // not using fishMotion for player behavior
-        Debug.Log("playerSwitch called, switching to: " + target.gameObject.name); //will delete
+        Debug.Log("playerSwitch called, switching to: " + selectedFish.gameObject.name); //will delete
         fishCameraController camera = mainCamera.GetComponent<fishCameraController>();
-        camera.target = target.transform;
+        camera.target = selectedFish.transform;
 
         isPlayer = false;
         updateControlState();
 
-        target.isPlayer = true;
-        target.updateControlState();
-        FishDiscoveryManager.Instance.Discover(target.FishData); 
+        selectedFish.isPlayer = true;
+        selectedFish.updateControlState();
+        FishDiscoveryManager.Instance.Discover(selectedFish.FishData);
+
+    }
+
+    void highlightSelection()
+    {
+        Debug.Log("highlighting selected fish");
+        if (selectedFish.outline != null)
+        {
+            selectedFish.outline.enabled = true;
+        }
+    }
+
+    void unhighlightSelection()
+    {
+        Debug.Log("unhighlighting");
+        if (selectedFish.outline != null)
+        {
+            selectedFish.outline.enabled = false;
+        }
+    }
+
+    void clearSelection()
+    {
+        unhighlightSelection();
+        selectedFish = null;
 
     }
 
