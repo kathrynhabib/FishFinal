@@ -16,6 +16,9 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         aiBehavior = GetComponent<fishBehavior>();
         updateControlState();
 
+        Debug.Log("fishDataController Start on: " + gameObject.name + " | isPlayer: " + isPlayer);
+        Debug.Log("FishDiscoveryManager.Instance is: " + FishDiscoveryManager.Instance); //will delete
+
         if (isPlayer)
             FishDiscoveryManager.Instance.Discover(FishData);
     }
@@ -62,6 +65,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     {
         // enable fishMotion when switching to ai behavior
         // not using fishMotion for player behavior
+        Debug.Log("playerSwitch called, switching to: " + target.gameObject.name); //will delete
         fishCameraController camera = mainCamera.GetComponent<fishCameraController>();
         camera.target = target.transform;
 

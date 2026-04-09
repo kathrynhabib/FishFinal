@@ -3,7 +3,7 @@ using UnityEngine;
 public class EncyclopediaManagerScript : MonoBehaviour
 {
     public static EncyclopediaManagerScript Instance { get; private set; }
-    
+
     [SerializeField] public GameObject EncyclopediaEntry;
     [SerializeField] public Transform Content;
 
@@ -14,6 +14,11 @@ public class EncyclopediaManagerScript : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        printEntries(); 
+    }
+
     void OnEnable()
     {
         printEntries();
@@ -21,6 +26,11 @@ public class EncyclopediaManagerScript : MonoBehaviour
 
     public void printEntries()
     {
+         if (FishDiscoveryManager.Instance == null)
+        {
+            Debug.LogError("FishDiscoveryManager.Instance is null!");
+            return;
+        }
         foreach(Transform entry in Content )
         {
             Destroy(entry.gameObject);
