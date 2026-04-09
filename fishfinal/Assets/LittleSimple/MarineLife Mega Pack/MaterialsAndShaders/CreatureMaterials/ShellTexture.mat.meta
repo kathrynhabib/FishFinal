@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ecbe3570b522e1440b9c6e9d988a67c9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 279697
+  packageName: MarineLife Mega Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/LittleSimple/MarineLife Mega Pack/MaterialsAndShaders/CreatureMaterials/ShellTexture.mat
+  uploadId: 659793

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d606d9c0f9535484da94300fd5a5fb24
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 279697
+  packageName: MarineLife Mega Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/LittleSimple/MarineLife Mega Pack/Rendering/URP_Renderer.asset
+  uploadId: 659793
