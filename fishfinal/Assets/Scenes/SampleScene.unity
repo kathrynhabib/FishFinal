@@ -1151,6 +1151,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589975212}
   m_CullTransparentMesh: 1
+--- !u!1 &682496512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682496514}
+  - component: {fileID: 682496513}
+  m_Layer: 0
+  m_Name: FishDiscoveryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &682496513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682496512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9e1c3addcbf424d862b944f38c0fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishDiscoveryManager
+  infoPopup: {fileID: 1086681828}
+  counter: {fileID: 1332786584}
+  totalFish: 10
+--- !u!4 &682496514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682496512}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 371.1684, y: 204.18034, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishDataController
-  FishData: {fileID: 0}
+  FishData: {fileID: 11400000, guid: 9296444714d17468f8cfbd1118446db7, type: 2}
   isPlayer: 0
   mainCamera: {fileID: 330585545}
 --- !u!114 &978402508
@@ -2255,13 +2302,14 @@ GameObject:
   - component: {fileID: 1086681826}
   - component: {fileID: 1086681825}
   - component: {fileID: 1086681827}
+  - component: {fileID: 1086681828}
   m_Layer: 5
   m_Name: PopupPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1086681824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2335,6 +2383,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1086681828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086681823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76587a7734b5c419ca0d10fda50ce5ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishInfoPopup
+  canvasGroup: {fileID: 1086681827}
+  fishImage: {fileID: 1517327391}
+  fishNameText: {fileID: 837490018}
+  fishFactText: {fileID: 2080232352}
+  closeButton: {fileID: 1805741339}
 --- !u!1 &1090097064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,10 +2610,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1331400099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7c0ee32553ad44829f3445e7e973f3a, type: 3}
+  m_Script: {fileID: 11500000, guid: bf1874524d9764778b0ee28f92dc457a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EncyclopediaController
-  EncyclopediaPanel: {fileID: 2026312927}
+  EncyclopediaEntry: {fileID: 662986046616979577, guid: c8e680647a0ec4b5e9ba249d62bf4471, type: 3}
+  Content: {fileID: 1372869687}
 --- !u!4 &1331400101
 Transform:
   m_ObjectHideFlags: 0
@@ -2575,6 +2641,7 @@ GameObject:
   - component: {fileID: 1332786581}
   - component: {fileID: 1332786583}
   - component: {fileID: 1332786582}
+  - component: {fileID: 1332786584}
   m_Layer: 5
   m_Name: Fish Counter Text
   m_TagString: Untagged
@@ -2703,6 +2770,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332786580}
   m_CullTransparentMesh: 1
+--- !u!114 &1332786584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332786580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31df8ee592cc2467fb5f61658f902882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishCounter
+  counterText: {fileID: 1332786582}
 --- !u!1 &1340948915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,7 +3727,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1923088744}
   - component: {fileID: 1923088743}
-  - component: {fileID: 1923088742}
   - component: {fileID: 1923088741}
   - component: {fileID: 1923088745}
   m_Layer: 0
@@ -3670,23 +3749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishCounter
   counterText: {fileID: 0}
---- !u!114 &1923088742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923088740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27b94cedaca94593b70e12d46cb1fb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FishInfoPopup
-  canvasGroup: {fileID: 0}
-  fishImage: {fileID: 0}
-  fishNameText: {fileID: 0}
-  fishFactText: {fileID: 0}
-  closeButton: {fileID: 0}
 --- !u!114 &1923088743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3696,11 +3758,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923088740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a587a6f265cf14c01ac366cfbe979c7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f9e1c3addcbf424d862b944f38c0fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishDiscoveryManager
-  infoPopup: {fileID: 0}
-  counter: {fileID: 0}
+  infoPopup: {fileID: 1086681828}
+  counter: {fileID: 1332786584}
   totalFish: 10
 --- !u!4 &1923088744
 Transform:
@@ -3818,7 +3880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1a048abab08f145ab3907828e17001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishDataController
-  FishData: {fileID: 0}
+  FishData: {fileID: 11400000, guid: 33f7b42d023b14f179bfae7e91ccda48, type: 2}
   isPlayer: 1
   mainCamera: {fileID: 330585545}
 --- !u!114 &1979043733
@@ -3918,8 +3980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac560aa035454478f82e4035cc496380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EncyclopediaManagerScript
-  EncyclopediaEntry: {fileID: 662986046616979577, guid: c8e680647a0ec4b5e9ba249d62bf4471, type: 3}
-  Content: {fileID: 1372869687}
+  EncyclopediaEntry: {fileID: 0}
+  Content: {fileID: 0}
 --- !u!1001 &2076055498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3930,7 +3992,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -316336531736412219, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -316336531736412219, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       propertyPath: _autoMotion
@@ -4385,3 +4447,4 @@ SceneRoots:
   - {fileID: 347115424}
   - {fileID: 2120664247}
   - {fileID: 1331400101}
+  - {fileID: 682496514}

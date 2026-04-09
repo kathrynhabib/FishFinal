@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9fceadf961d7849a2525380b3ec48e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
   m_Name: freshwaterguppy
   m_EditorClassIdentifier: Assembly-CSharp::fishData
-  fishName: Fresh Water Guppy
-  fishImage: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}
-  fishFact: 'Native to South American, these freshwater tropical fish are known as
-    the "million fish" due to their high breeding rate! '
+  <fishName>k__BackingField: freshwater guppy
+  <fishFact>k__BackingField: little fish
+  <fishImage>k__BackingField: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}

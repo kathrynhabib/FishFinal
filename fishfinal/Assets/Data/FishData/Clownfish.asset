@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
   m_Name: Clownfish
   m_EditorClassIdentifier: Assembly-CSharp::FishData
-  <fishName>k__BackingField: 
-  <fishFact>k__BackingField: 
-  <fishImage>k__BackingField: {fileID: 0}
+  <fishName>k__BackingField: clownfish
+  <fishFact>k__BackingField: nemo is a clownfish
+  <fishImage>k__BackingField: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}
