@@ -42,12 +42,13 @@ public class fishPlayerInput : MonoBehaviour
         if (move.magnitude > 0.01f && move.magnitude < maxSpeed)
         {
             Vector3 accel = move * Time.deltaTime * acceleration;
-            rb.linearVelocity += accel;
+            //rb.linearVelocity += accel;
+            rb.MovePosition(rb.position + accel);
         }
-        else
-        {
-            rb.linearVelocity *= slowingSpeed;
-        }
+        //else
+        //{
+        //    rb.linearVelocity *= slowingSpeed;
+        //}
     }
     void handleRotation() 
     {

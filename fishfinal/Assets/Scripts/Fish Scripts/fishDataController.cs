@@ -8,7 +8,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     public bool isPlayer;
     public Camera mainCamera;
 
-    private fishBehavior aiBehavior; // ai behavior
+    //private fishBehavior aiBehavior; // ai behavior
     private fishPlayerInput playerInput;
 
     // for adding confirmation for switching
@@ -17,17 +17,19 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     void Start()
     {
-        playerInput = GetComponent<fishPlayerInput>();
-        aiBehavior = GetComponent<fishBehavior>();
+        playerInput = GetComponent<fishPlayerInput>(); // restructure these to take their data from fishdata too?
+        //aiBehavior = GetComponent<fishBehavior>();
         outline = GetComponent<Outline>();
         outline.enabled = false;
+
+        applyFishData();
         updateControlState();
 
         Debug.Log("fishDataController Start on: " + gameObject.name + " | isPlayer: " + isPlayer);
         Debug.Log("FishDiscoveryManager.Instance is: " + FishDiscoveryManager.Instance); //will delete
 
-        if (isPlayer)
-            FishDiscoveryManager.Instance.Discover(FishData);
+        //if (isPlayer)
+        //    FishDiscoveryManager.Instance.Discover(FishData);
     }
 
     // Update is called once per frame
@@ -46,10 +48,41 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     {
         playerInput.enabled = isPlayer;
 
-        if (!isPlayer) aiBehavior.enable();
-        else aiBehavior.disable();
+        //if (!isPlayer) aiBehavior.enable();
+        //else aiBehavior.disable();
     }
 
+    void applyFishData()
+    {
+        if (FishData == null)
+        {
+            Debug.LogError("attach FishData pls");
+            return;
+        }
+        // these should all be replaced w adjustments in fishMovement isntead
+        playerInput.acceleration = FishData.acceleration;
+        playerInput.turnSpeed = FishData.turnSpeed;
+        playerInput.maxSpeed = FishData.maxSpeed;
+        playerInput.slowingSpeed = FishData.slowingSpeed;
+
+        CapsuleCollider collider = GetComponent<CapsuleCollider>();
+        if (collider != null)
+        {
+            collider.radius = FishData.colliderRadius;
+        }
+
+        Transform modelContainer = transform.Find("ModelContainer");
+        if(modelContainer != null)
+        {
+            foreach (Transform child in modelContainer) // prevents duplicates when switching fish
+                Destroy(child.gameObject);
+            
+            Instantiate(FishData.modelPrefab, modelContainer);
+        }
+
+        //aiBehavior = GetComponent<fishBehavior>();
+        //aiBehavior.SetBehavior(FishData.behaviorType);
+    }
 
     // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), select.
     // hit left shift again to confirm switch
