@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class fishPlayerInput : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class fishPlayerInput : MonoBehaviour
     public float maxSpeed = 1.5f; // should vary per fish
 
     private Rigidbody rb;
+    private Vector3 velocity;
 
     void Awake()
     {
@@ -26,6 +28,7 @@ public class fishPlayerInput : MonoBehaviour
     }
     void handleMovement()
     {
+
         float moveLeftRight = Input.GetAxis("Horizontal");
         float moveForwardBack = Input.GetAxis("Vertical");
 
@@ -38,24 +41,27 @@ public class fishPlayerInput : MonoBehaviour
             moveUpDown -= 1f;
 
 
-        Vector3 move = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
-        if (move.magnitude > 0.01f && move.magnitude < maxSpeed)
+        Vector3 inputDir = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
+
+        if (inputDir.magnitude > 0.01f)
         {
-            Vector3 accel = move * Time.deltaTime * acceleration;
-            //rb.linearVelocity += accel;
-            rb.MovePosition(rb.position + accel);
+            inputDir.Normalize();
+
+            velocity += inputDir * acceleration * Time.deltaTime;
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         }
-        //else
-        //{
-        //    rb.linearVelocity *= slowingSpeed;
-        //}
+        else // smoothing slowing
+        {
+            velocity *= slowingSpeed;
+        }
+        rb.MovePosition(rb.position + velocity * Time.deltaTime);
+
+
     }
     void handleRotation() 
     {
-
         Quaternion targetRotation = Quaternion.LookRotation(fishCamera.forward, Vector3.up);
         rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSpeed * Time.deltaTime);
-
     }
 
 }

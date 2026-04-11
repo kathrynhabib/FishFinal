@@ -20,6 +20,6 @@ public class FishData : ScriptableObject
     //[Header("AI Movement")]
     //public fishBehavior behaviorType;
 
-    [Header("Collider")]
+    [Header("Collider")] // should prolly adapt this for options beyond a capsule for more complex creatures
     public float colliderRadius;
 }

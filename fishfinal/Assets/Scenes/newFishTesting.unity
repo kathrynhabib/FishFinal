@@ -136,6 +136,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4615939544628846362, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4615939544628846362, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 2026666020}
@@ -143,14 +147,26 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -148558447315761640, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 1698510992309266160, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698510992309266160, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: fishCamera
       value: 
       objectReference: {fileID: 2026666021}
+    - target: {fileID: 3494992869510047505, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.050366778

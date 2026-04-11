@@ -43,6 +43,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         {
             trySelectFish();
         }
+
     }
     void updateControlState()
     {
