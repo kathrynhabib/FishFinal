@@ -16,6 +16,8 @@ public class FishData : ScriptableObject
     public float turnSpeed;
     public float slowingSpeed;
     public float maxSpeed;
+    public bool horizontalEnabled;
+    public bool verticalEnabled;
 
     //[Header("AI Movement")]
     //public fishBehavior behaviorType;

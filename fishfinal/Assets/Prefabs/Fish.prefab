@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4760044722692902666}
   - component: {fileID: -861571628668695728}
   - component: {fileID: -4615939544628846362}
+  - component: {fileID: -7221460866988797573}
   - component: {fileID: 1698510992309266160}
   - component: {fileID: -148558447315761640}
   - component: {fileID: 3494992869510047505}
@@ -60,7 +61,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -79,6 +80,22 @@ MonoBehaviour:
   FishData: {fileID: 0}
   isPlayer: 0
   mainCamera: {fileID: 0}
+--- !u!114 &-7221460866988797573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532881155215545493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a41072c6d7d7ec4ba454c6ccfcd3fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishMovement
+  acceleration: 10
+  turnSpeed: 3
+  slowingSpeed: 0.99
+  maxSpeed: 1.5
 --- !u!114 &1698510992309266160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,11 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930325694b5cd1346bce6c163d38f3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishPlayerInput
+  movement: {fileID: -7221460866988797573}
   fishCamera: {fileID: 0}
-  acceleration: 4
-  turnSpeed: 3
-  slowingSpeed: 0.995
-  maxSpeed: 1.5
 --- !u!114 &-148558447315761640
 MonoBehaviour:
   m_ObjectHideFlags: 0

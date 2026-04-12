@@ -4,27 +4,18 @@ using UnityEngine;
 
 public class fishPlayerInput : MonoBehaviour
 {
-
+    public fishMovement movement;
     public Transform fishCamera;
-
-    public float acceleration = 10;
-    public float turnSpeed = 3f; // turning speed of the fish
-    public float slowingSpeed = .99f;
-    public float maxSpeed = 1.5f; // should vary per fish
-
-    private Rigidbody rb;
-    private Vector3 velocity;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        movement = GetComponent<fishMovement>();
     }
 
     void Update()
     {
         handleMovement();
         handleRotation();
-
     }
     void handleMovement()
     {
@@ -43,25 +34,13 @@ public class fishPlayerInput : MonoBehaviour
 
         Vector3 inputDir = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
 
-        if (inputDir.magnitude > 0.01f)
-        {
-            inputDir.Normalize();
-
-            velocity += inputDir * acceleration * Time.deltaTime;
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
-        }
-        else // smoothing slowing
-        {
-            velocity *= slowingSpeed;
-        }
-        rb.MovePosition(rb.position + velocity * Time.deltaTime);
-
+        movement.applyMovement(inputDir);
 
     }
     void handleRotation() 
     {
         Quaternion targetRotation = Quaternion.LookRotation(fishCamera.forward, Vector3.up);
-        rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSpeed * Time.deltaTime);
+        movement.applyRotation(targetRotation);
     }
 
 }

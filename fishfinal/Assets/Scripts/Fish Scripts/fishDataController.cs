@@ -10,6 +10,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     //private fishBehavior aiBehavior; // ai behavior
     private fishPlayerInput playerInput;
+    private fishMovement movement;
 
     // for adding confirmation for switching
     private fishDataController selectedFish;
@@ -19,6 +20,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     {
         playerInput = GetComponent<fishPlayerInput>(); // restructure these to take their data from fishdata too?
         //aiBehavior = GetComponent<fishBehavior>();
+        movement = GetComponent<fishMovement>();
         outline = GetComponent<Outline>();
         outline.enabled = false;
 
@@ -61,10 +63,12 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
             return;
         }
         // these should all be replaced w adjustments in fishMovement isntead
-        playerInput.acceleration = FishData.acceleration;
-        playerInput.turnSpeed = FishData.turnSpeed;
-        playerInput.maxSpeed = FishData.maxSpeed;
-        playerInput.slowingSpeed = FishData.slowingSpeed;
+        movement.acceleration = FishData.acceleration;
+        movement.turnSpeed = FishData.turnSpeed;
+        movement.maxSpeed = FishData.maxSpeed;
+        movement.slowingSpeed = FishData.slowingSpeed;
+        movement.horizontalEnabled = FishData.horizontalEnabled;
+        movement.verticalEnabled = FishData.verticalEnabled;
 
         CapsuleCollider collider = GetComponent<CapsuleCollider>();
         if (collider != null)
