@@ -154,9 +154,9 @@ RectTransform:
   m_Father: {fileID: 1090097065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: -17}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &33295761
 MonoBehaviour:
@@ -508,9 +508,9 @@ RectTransform:
   m_Father: {fileID: 1090097065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -17}
+  m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &372233647
 MonoBehaviour:
@@ -1314,10 +1314,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 682496512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b83a593e251f46ec91cfafcb88f06c2, type: 3}
+  m_Script: {fileID: 11500000, guid: a45075aec3ff84d39a1f3680b89bd44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishDiscoveryManager
-  infoPopup: {fileID: 0}
+  infoPopup: {fileID: 1086681828}
   counter: {fileID: 1332786584}
   totalFish: 10
 --- !u!4 &682496514
@@ -1538,7 +1538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &920298179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,9 +1745,9 @@ RectTransform:
   m_Father: {fileID: 1090097065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 20}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &960392195
 MonoBehaviour:
@@ -1874,11 +1874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930325694b5cd1346bce6c163d38f3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishPlayerInput
+  movement: {fileID: 0}
   fishCamera: {fileID: 330585546}
-  acceleration: 10
-  turnSpeed: 3
-  slowingSpeed: 0.99
-  maxSpeed: 1.5
 --- !u!114 &978402502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,8 +1891,6 @@ MonoBehaviour:
   FishData: {fileID: 11400000, guid: 9296444714d17468f8cfbd1118446db7, type: 2}
   isPlayer: 0
   mainCamera: {fileID: 330585545}
-  FishDiscoveryManager: {fileID: 0}
-  overrideController: {fileID: 0}
 --- !u!114 &978402508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,10 +1903,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishBehavior
-  detectionRadius: 6
-  safeRadius: 8
-  idleMinDuration: 0.5
-  idleMaxDuration: 2
+  fsm: {fileID: 0}
+  patrol: {fileID: 0}
+  motion: {fileID: 0}
 --- !u!54 &978402509
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1971,6 +1965,24 @@ MonoBehaviour:
   idleMinDuration: 1.5
   idleMaxDuration: 4
   currentState: 0
+--- !u!114 &978402523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978402495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1015138342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,14 +2408,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1086681823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76587a7734b5c419ca0d10fda50ce5ca, type: 3}
+  m_Script: {fileID: 11500000, guid: d8e9e656ed23c45af8409589fce49440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishInfoPopup
-  canvasGroup: {fileID: 0}
-  fishImage: {fileID: 0}
-  fishNameText: {fileID: 0}
-  fishFactText: {fileID: 0}
-  closeButton: {fileID: 0}
+  canvasGroup: {fileID: 1086681827}
+  fishImage: {fileID: 1517327391}
+  fishNameText: {fileID: 837490018}
+  fishFactText: {fileID: 2080232352}
+  closeButton: {fileID: 1805741339}
 --- !u!1 &1090097064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,8 +2557,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 581789077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.056666672}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3245,7 +3257,7 @@ RectTransform:
   m_Father: {fileID: 1895179855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3490,6 +3502,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 978402518}
+    - targetCorrespondingSourceObject: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978402523}
   m_SourcePrefab: {fileID: 100100000, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
 --- !u!1 &1805741337
 GameObject:
@@ -3803,11 +3818,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923088740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a8d840dcfeca483982c140a21fef5f3, type: 3}
+  m_Script: {fileID: 11500000, guid: a45075aec3ff84d39a1f3680b89bd44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishDiscoveryManager
-  infoPopup: {fileID: 0}
-  counter: {fileID: 0}
+  infoPopup: {fileID: 1086681828}
+  counter: {fileID: 1332786584}
   totalFish: 10
 --- !u!4 &1923088744
 Transform:
@@ -3855,11 +3870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930325694b5cd1346bce6c163d38f3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishPlayerInput
+  movement: {fileID: 0}
   fishCamera: {fileID: 330585546}
-  acceleration: 10
-  turnSpeed: 3
-  slowingSpeed: 0.99
-  maxSpeed: 1.5
 --- !u!54 &1979043720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3928,8 +3940,6 @@ MonoBehaviour:
   FishData: {fileID: 11400000, guid: 33f7b42d023b14f179bfae7e91ccda48, type: 2}
   isPlayer: 1
   mainCamera: {fileID: 330585545}
-  FishDiscoveryManager: {fileID: 0}
-  overrideController: {fileID: 0}
 --- !u!114 &1979043733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3942,10 +3952,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishBehavior
-  detectionRadius: 6
-  safeRadius: 8
-  idleMinDuration: 0.5
-  idleMaxDuration: 2
+  fsm: {fileID: 0}
+  patrol: {fileID: 0}
+  motion: {fileID: 0}
 --- !u!114 &1979043736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3978,6 +3987,24 @@ MonoBehaviour:
   patrolCenter: {x: 0, y: 0, z: 0}
   patrolExtents: {x: 10, y: 4, z: 10}
   arrivalDistance: 1.5
+--- !u!114 &1979043740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979043717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &2076055498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4075,6 +4102,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1979043733}
+    - targetCorrespondingSourceObject: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1979043740}
   m_SourcePrefab: {fileID: 100100000, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
 --- !u!1 &2080232350
 GameObject:
