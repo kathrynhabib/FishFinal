@@ -30,8 +30,8 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         Debug.Log("fishDataController Start on: " + gameObject.name + " | isPlayer: " + isPlayer);
         Debug.Log("FishDiscoveryManager.Instance is: " + FishDiscoveryManager.Instance); //will delete
 
-        //if (isPlayer)
-        //    FishDiscoveryManager.Instance.Discover(FishData);
+        if (isPlayer)
+            FishDiscoveryManager.Instance.Discover(FishData);
     }
 
     // Update is called once per frame
@@ -110,7 +110,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
                 Debug.Log("selected target fish, lshift again to confirm");
                 // i think here we can also add a ui popup that temporarilty freezes the screen asking the player to confirm or exit
-                /*SwitchConfirmPopup.Instance.Show(targetFish.FishData.fishName,
+                SwitchConfirmPopup.Instance.Show(targetFish.FishData.fishName,
                     () =>
                     {
                         trySwitchFish(targetFish);
@@ -120,7 +120,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
                     {
                         clearSelection();
                     }
-                );*/
+                );
 
             }
         }
@@ -139,7 +139,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         selectedFish.isPlayer = true;
         selectedFish.updateControlState();
-        //FishDiscoveryManager.Instance.Discover(selectedFish.FishData);
+        FishDiscoveryManager.Instance.Discover(selectedFish.FishData);
 
     }
 
