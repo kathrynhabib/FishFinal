@@ -2594,6 +2594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331400101}
   - component: {fileID: 1331400100}
+  - component: {fileID: 1331400102}
   m_Layer: 0
   m_Name: EncyclopediaManager
   m_TagString: Untagged
@@ -2630,6 +2631,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1331400102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331400099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5923a0b3cd894031b6fdb810a21af37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EncyclopediaController
+  EncyclopediaPanel: {fileID: 920298178}
 --- !u!1 &1332786580
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,8 +3918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac560aa035454478f82e4035cc496380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EncyclopediaManagerScript
-  EncyclopediaEntry: {fileID: 0}
-  Content: {fileID: 0}
 --- !u!1001 &2076055498
 PrefabInstance:
   m_ObjectHideFlags: 0
