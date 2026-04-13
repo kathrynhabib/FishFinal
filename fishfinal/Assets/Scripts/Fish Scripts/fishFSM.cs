@@ -1,8 +1,6 @@
 using UnityEngine;
 using FishAlive;
 
-public enum FishState { Idle, Patrol, Flee }
-
 public class fishFSM : MonoBehaviour
 
 {

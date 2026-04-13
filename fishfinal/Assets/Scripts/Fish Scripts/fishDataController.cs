@@ -1,7 +1,105 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class fishDataController : MonoBehaviour // contains the data bound to each fish and helps activate/ deactivate it as a player
+public class fishDataController : MonoBehaviour
+{
+    public FishData FishData;
+    public bool isPlayer;
+    public Camera mainCamera;
+    public FishDiscoveryManager FishDiscoveryManager;
+    public AnimatorOverrideController overrideController;
+
+    private fishBehavior aiBehavior;
+    private fishPlayerInput playerInput;
+    private fishDataController selectedFish;
+
+    void Start()
+    {
+        playerInput = GetComponent<fishPlayerInput>();
+        aiBehavior = GetComponent<fishBehavior>();
+        updateControlState();
+    }
+
+    void Update()
+    {
+        if (!isPlayer) return;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            handleSelection();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            clearSelection();
+    }
+
+    public void updateControlState()
+    {
+        if (playerInput != null)
+            playerInput.enabled = isPlayer;
+
+        if (aiBehavior != null)
+        {
+            if (!isPlayer) aiBehavior.enable();
+            else           aiBehavior.disable();
+        }
+    }
+
+    private void handleSelection()
+    {
+        if (selectedFish == null)
+            trySelectFish();
+        else
+        {
+            trySwitchFish(selectedFish);
+            clearSelection();
+        }
+    }
+
+    private void trySelectFish()
+    {
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 100f))
+        {
+            fishDataController targetFish = hit.collider.GetComponent<fishDataController>();
+
+            if (targetFish != null && targetFish != this && targetFish.tag == "fish")
+            {
+                selectedFish = targetFish;
+                Debug.Log("selected: " + selectedFish.gameObject.name);
+            }
+        }
+    }
+
+    void trySwitchFish(fishDataController target)
+    {
+        fishCameraController camera = mainCamera.GetComponent<fishCameraController>();
+        camera.target = target.transform;
+
+        isPlayer = false;
+        updateControlState();
+
+        target.isPlayer = true;
+        target.updateControlState();
+
+        // Apply this fish's animator override controller
+        if (target.overrideController != null)
+        {
+            Animator anim = target.GetComponent<Animator>();
+            if (anim != null)
+                anim.runtimeAnimatorController = target.overrideController;
+        }
+
+        PlayerFishTracker.Current = target.transform;
+        FishDiscoveryManager.Instance.Discover(target.FishData);
+    }
+
+    void clearSelection()
+    {
+        selectedFish = null;
+    }
+}
+
+/*public class fishDataController : MonoBehaviour // contains the data bound to each fish and helps activate/ deactivate it as a player
 {
     public FishData FishData;
     public bool isPlayer;
@@ -74,9 +172,10 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         target.isPlayer = true;
         target.updateControlState();
-        FishDiscoveryManager.Instance.Discover(target.FishData); 
+        FishDiscoveryManager.Instance.Discover(target.FishData);
 
     }
 
 
 }
+*/
