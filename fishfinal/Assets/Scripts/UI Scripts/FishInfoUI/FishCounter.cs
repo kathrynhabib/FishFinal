@@ -9,9 +9,8 @@ public class FishCounter : MonoBehaviour
 
     void Start()
     {
-        //source for find first object of type: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Object.FindFirstObjectByType.html
-        counterText.text = "0/" + FindFirstObjectByType<FishDiscoveryManager>().totalFish;
-    }
+    counterText.text = "0/0";
+    }   
 
     // called by FishDiscoveryManager each time a new fish is found
     public void UpdateCount(int current, int total)
