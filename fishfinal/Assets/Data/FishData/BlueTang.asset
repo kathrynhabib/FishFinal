@@ -19,7 +19,7 @@ MonoBehaviour:
   acceleration: 5
   turnSpeed: 4
   slowingSpeed: 0.995
-  maxSpeed: 1
+  maxSpeed: 10
   horizontalEnabled: 1
   verticalEnabled: 1
   colliderRadius: 0.8
