@@ -21,7 +21,7 @@ public class fishCameraController : MonoBehaviour
 
     public void setTarget (Transform targetFish)
     {
-        cam.LookAt = targetFish;
+        cam.Follow = targetFish;
     }
 
     public void setRadius (float camRadius)

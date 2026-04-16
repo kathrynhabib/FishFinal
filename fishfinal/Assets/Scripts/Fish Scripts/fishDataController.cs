@@ -28,7 +28,6 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     void Start()
     {
         
-        
         playerInput = GetComponent<fishPlayerInput>();
         aiBehavior = GetComponent<fishBehavior>();
         movement = GetComponent<fishMovement>();
