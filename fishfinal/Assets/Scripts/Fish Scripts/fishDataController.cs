@@ -21,16 +21,28 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     private fishDataController selectedFish;
     private Outline outline;
 
+    // should also now provide camera offset dimensions to the cinemachine, along w a setting for mouse sens
+    //private fishCameraController camControl;
+    public GameObject thisPrefab;
+
     void Start()
     {
-        playerInput = GetComponent<fishPlayerInput>(); // restructure these to take their data from fishdata too?
+        
+        
+        playerInput = GetComponent<fishPlayerInput>();
         aiBehavior = GetComponent<fishBehavior>();
         movement = GetComponent<fishMovement>();
         outline = GetComponent<Outline>();
+        //camControl = GetComponent<fishCameraController>();
         if (outline != null) outline.enabled = false;
 
         applyFishData();
         updateControlState();
+
+        if (thisPrefab != null)
+        {
+            Debug.Log(FishData.fishName + "prefab imported");
+        }
 
         if (isPlayer)
             FishDiscoveryManager.Instance.Discover(FishData);
@@ -106,6 +118,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
                 selectedFish = targetFish;
                 highlightSelection();
 
+
                 SwitchConfirmPopup.Instance.Show(targetFish.FishData.fishName,
                     () =>
                     {
@@ -123,8 +136,11 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     void trySwitchFish(fishDataController target)
     {
-        fishCameraController camera = mainCamera.GetComponent<fishCameraController>();
-        camera.target = target.transform;
+        fishCameraController camControl = mainCamera.GetComponent<fishCameraController>();
+        
+        camControl.setTarget(target.thisPrefab.transform);
+        camControl.setRadius(target.FishData.cameraRadius);
+        // also set interp and collision detect
 
         isPlayer = false;
         updateControlState();       // AI on for old fish, playerInput off

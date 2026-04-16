@@ -23,3 +23,4 @@ MonoBehaviour:
   horizontalEnabled: 1
   verticalEnabled: 1
   colliderRadius: 0.8
+  cameraRadius: 0.5
