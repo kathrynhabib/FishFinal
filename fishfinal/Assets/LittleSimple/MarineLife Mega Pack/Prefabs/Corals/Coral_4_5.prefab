@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7555100776708312313}
   - component: {fileID: 7051324572353691578}
   - component: {fileID: 4633443362398146459}
+  - component: {fileID: 8949887249851924997}
   m_Layer: 0
   m_Name: Coral_4_5
   m_TagString: Untagged
@@ -113,3 +114,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1928723440823642704, guid: 586df8ed5999a1a49a3955055968caf0, type: 3}
+--- !u!205 &8949887249851924997
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071778037221292977}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.018066406, y: 0.2748202, z: 0.0017623901}
+  m_Size: 0.8298187
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0075843474
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7051324572353691578}
+  m_Enabled: 1

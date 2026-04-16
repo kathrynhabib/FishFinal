@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1778225722437488100}
   - component: {fileID: 5403977655340243563}
   - component: {fileID: 2800900942827053287}
+  - component: {fileID: 5011931573261153415}
   m_Layer: 0
   m_Name: Coral_13_1
   m_TagString: Untagged
@@ -59,6 +60,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,9 +86,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &2800900942827053287
 MeshCollider:
@@ -106,3 +114,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 291bd5a191da3234bbd9458c4016709b, type: 2}
+--- !u!205 &5011931573261153415
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206525150742233118}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.018066406, y: 0.2748202, z: 0.0017623901}
+  m_Size: 0.8298187
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0075843474
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5403977655340243563}
+  m_Enabled: 1
