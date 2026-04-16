@@ -22,8 +22,8 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     private Outline outline;
 
     // should also now provide camera offset dimensions to the cinemachine, along w a setting for mouse sens
-    //private fishCameraController camControl;
     public GameObject thisPrefab;
+    private Rigidbody rb;
 
     void Start()
     {
@@ -33,16 +33,13 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         aiBehavior = GetComponent<fishBehavior>();
         movement = GetComponent<fishMovement>();
         outline = GetComponent<Outline>();
-        //camControl = GetComponent<fishCameraController>();
+        rb = GetComponent<Rigidbody>();
+
         if (outline != null) outline.enabled = false;
 
         applyFishData();
         updateControlState();
 
-        if (thisPrefab != null)
-        {
-            Debug.Log(FishData.fishName + "prefab imported");
-        }
 
         if (isPlayer)
             FishDiscoveryManager.Instance.Discover(FishData);
@@ -140,7 +137,15 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         
         camControl.setTarget(target.thisPrefab.transform);
         camControl.setRadius(target.FishData.cameraRadius);
+
+
         // also set interp and collision detect
+        rb.interpolation = RigidbodyInterpolation.None;
+        rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
+
+        target.rb.interpolation = RigidbodyInterpolation.Interpolate;
+        target.rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
 
         isPlayer = false;
         updateControlState();       // AI on for old fish, playerInput off

@@ -18,7 +18,7 @@ MonoBehaviour:
   modelPrefab: {fileID: 2554981329576720290, guid: 835648dad22ed394bb26c66fa02aa0b7, type: 3}
   acceleration: 5
   turnSpeed: 3
-  slowingSpeed: 0.995
+  slowingSpeed: 0.95
   maxSpeed: 100
   horizontalEnabled: 1
   verticalEnabled: 1
