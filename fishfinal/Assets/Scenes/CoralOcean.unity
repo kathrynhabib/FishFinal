@@ -6158,13 +6158,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2008184010379367754, guid: a6abe230f3d6a4756af9685e5aa75f4d, type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 0
+    - target: {fileID: 4421895033606421124, guid: a6abe230f3d6a4756af9685e5aa75f4d, type: 3}
+      propertyPath: bounds.m_Center.x
+      value: 150
       objectReference: {fileID: 0}
-    - target: {fileID: 2008184010379367754, guid: a6abe230f3d6a4756af9685e5aa75f4d, type: 3}
-      propertyPath: m_EnableTreeColliders
-      value: 1
+    - target: {fileID: 4421895033606421124, guid: a6abe230f3d6a4756af9685e5aa75f4d, type: 3}
+      propertyPath: bounds.m_Center.z
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421895033606421124, guid: a6abe230f3d6a4756af9685e5aa75f4d, type: 3}
+      propertyPath: bounds.m_Extent.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421895033606421124, guid: a6abe230f3d6a4756af9685e5aa75f4d, type: 3}
+      propertyPath: bounds.m_Extent.z
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4421895033606421124, guid: a6abe230f3d6a4756af9685e5aa75f4d, type: 3}
       propertyPath: 'layerSettings.Array.data[0].modifierStack.Array.data[0]'
