@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,11 +25,6 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     public GameObject thisPrefab;
     private Rigidbody rb;
 
-    // for adding highlights to selectable fish
-    public float selectableRadius;
-    private List<fishDataController> highlightedFish = new List<fishDataController>();
-    public LayerMask fishLayer;
-
     void Start()
     {
         
@@ -41,10 +34,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         outline = GetComponent<Outline>();
         rb = GetComponent<Rigidbody>();
 
-        if (outline != null)
-        {
-            outline.enabled = false;
-        }
+        if (outline != null) outline.enabled = false;
 
         applyFishData();
         updateControlState();
@@ -59,8 +49,6 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         if (!isPlayer) return;
 
         if (SwitchConfirmPopup.Instance != null && SwitchConfirmPopup.Instance.IsOpen) return;
-
-        highlightNearby();
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
             trySelectFish();
@@ -86,7 +74,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     {
         if (FishData == null)
         {
-            Debug.LogError("attach" + this.name + " FishData pls");
+            Debug.LogError("attach FishData pls");
             return;
         }
 
@@ -101,23 +89,14 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         if (col != null)
             col.radius = FishData.colliderRadius;
 
-        /* the 13 lines below are AI generated*/
         Transform modelContainer = transform.Find("ModelContainer");
         if (modelContainer != null)
         {
             foreach (Transform child in modelContainer)
                 Destroy(child.gameObject);
 
-            GameObject model = Instantiate(FishData.modelPrefab, modelContainer);
-
-            outline = model.GetComponent<Outline>();
-
-            if (outline == null)
-                outline = model.AddComponent<Outline>();
-
-            outline.enabled = false;
+            Instantiate(FishData.modelPrefab, modelContainer);
         }
-
     }
 
     // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), select.
@@ -133,19 +112,17 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
             if (targetFish != null && targetFish != this && targetFish.tag == "fish")
             {
                 selectedFish = targetFish;
-                selectedFish.setHighlight(Color.white);
-                Debug.Log("making selected fish white");
+                highlightSelection();
+
 
                 SwitchConfirmPopup.Instance.Show(targetFish.FishData.fishName,
                     () =>
                     {
-                        Debug.LogError("first selection screen triggered");
                         trySwitchFish(targetFish);
                         clearSelection();
                     },
                     () =>
                     {
-                        Debug.LogError("cancel screen triggered");
                         clearSelection();
                     }
                 );
@@ -173,67 +150,26 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         updateControlState();       // AI on for old fish, playerInput off
 
         target.isPlayer = true;
-        target.unhighlight();
         target.updateControlState(); // AI off for new fish, playerInput on
 
         FishDiscoveryManager.Instance.Discover(target.FishData);
     }
 
-    void highlightNearby()
+    void highlightSelection()
     {
-        foreach (var fish in highlightedFish) // refreshing
-        {
-            if (fish != null)
-            {
-                fish.unhighlight();
-            }
-        }
-        highlightedFish.Clear();
-        
-        Collider[] hits = Physics.OverlapSphere(transform.position, selectableRadius, fishLayer);
-
-        foreach (var hit in hits)
-        {
-            fishDataController toHighlight = hit.GetComponent<fishDataController>();
-            if (toHighlight != null && toHighlight != this)
-            {
-                toHighlight.setHighlight(Color.yellow);
-                highlightedFish.Add(toHighlight);
-
-                Debug.Log(toHighlight.FishData.fishName);
-            }
-        }
-
+        if (selectedFish != null && selectedFish.outline != null)
+            selectedFish.outline.enabled = true;
     }
 
-    void setHighlight(Color color)
+    void unhighlightSelection()
     {
-        if (outline != null)
-        {
-            Debug.Log("highlighting this dih");
-            outline.enabled = true;
-            outline.OutlineColor = color;
-        }
-    }
-
-    void unhighlight()
-    {
-        if (outline != null)
-        {
-            outline.enabled = false;
-        }
+        if (selectedFish != null && selectedFish.outline != null)
+            selectedFish.outline.enabled = false;
     }
 
     void clearSelection()
     {
-        if (highlightedFish.Contains(selectedFish))
-        {
-            selectedFish.setHighlight(Color.yellow);
-        }
-        else
-        {
-            selectedFish.unhighlight();
-        }
+        unhighlightSelection();
         selectedFish = null;
     }
 }
