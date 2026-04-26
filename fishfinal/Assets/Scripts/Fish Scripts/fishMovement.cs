@@ -15,7 +15,9 @@ public class fishMovement : MonoBehaviour
     public bool verticalEnabled;
 
     private Rigidbody rb;
-    private Vector3 velocity;
+    private float velocityX; 
+    private float velocityY;
+    private float velocityZ;
 
     void Start()
     {
@@ -34,18 +36,32 @@ public class fishMovement : MonoBehaviour
 
         inputDir = transform.TransformDirection(localInput);
 
-        if (inputDir.magnitude > 0.01f)
+        if (Mathf.Abs(localInput.x) > 0.01f)
         {
-            inputDir.Normalize();
+            velocityX += localInput.x * acceleration * Time.deltaTime;
+        }
+        else velocityX *= slowingSpeed;
 
-            velocity += inputDir * acceleration * Time.deltaTime;
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
-        }
-        else // smoothing slowing
+        if (Mathf.Abs(localInput.y) > 0.01f)
         {
-            velocity *= slowingSpeed;
+            velocityY += localInput.y * acceleration * Time.deltaTime;
         }
-        rb.MovePosition(rb.position + velocity * Time.deltaTime);
+        else velocityY *= slowingSpeed;
+
+        if (Mathf.Abs(localInput.z) > 0.01f)
+        {
+            velocityZ += localInput.z * acceleration * Time.deltaTime;
+        }
+        else velocityZ *= slowingSpeed;
+
+        velocityX = Mathf.Clamp(velocityX, -maxSpeed, maxSpeed);
+        velocityY = Mathf.Clamp(velocityY, -maxSpeed, maxSpeed);
+        velocityZ = Mathf.Clamp(velocityZ, -maxSpeed, maxSpeed);
+
+        Vector3 localVelocity = new Vector3(velocityX, velocityY, velocityZ);
+        Vector3 worldVelocity = transform.TransformDirection(localVelocity); 
+        
+        rb.MovePosition(rb.position + worldVelocity * Time.deltaTime);
 
     }
 

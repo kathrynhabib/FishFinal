@@ -80,6 +80,11 @@ MonoBehaviour:
   FishData: {fileID: 0}
   isPlayer: 0
   mainCamera: {fileID: 0}
+  thisPrefab: {fileID: 0}
+  selectableRadius: 10
+  fishLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &-7221460866988797573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +101,8 @@ MonoBehaviour:
   turnSpeed: 3
   slowingSpeed: 0.99
   maxSpeed: 1.5
+  horizontalEnabled: 0
+  verticalEnabled: 0
 --- !u!114 &1698510992309266160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,9 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 3.5
+  outlineWidth: 6.6
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -160,6 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8534904090598616725}
+  - component: {fileID: 5834595699772264586}
   m_Layer: 0
   m_Name: ModelContainer
   m_TagString: Untagged
@@ -182,3 +190,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4760044722692902666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5834595699772264586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074588677294700974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5.77
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
