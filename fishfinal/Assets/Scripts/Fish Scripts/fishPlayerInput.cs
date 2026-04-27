@@ -30,7 +30,8 @@ public class fishPlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl))
             moveUpDown -= 1f;
-
+        
+        Debug.Log("input H: " + moveLeftRight + " V: " + moveForwardBack + " camera forward: " + fishCamera.forward);
 
         Vector3 inputDir = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
 
