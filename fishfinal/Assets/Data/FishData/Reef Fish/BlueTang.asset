@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: blue tang
   <fishFact>k__BackingField: dory is a blue tang
-  <fishImage>k__BackingField: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}
+  <fishImage>k__BackingField: {fileID: 21300000, guid: 5c97e0d6b5a2a4584a207b247d052dc3, type: 3}
   modelPrefab: {fileID: 9031231417089602193, guid: b253d6e13bb0a9845a1529c15d957f44, type: 3}
   acceleration: 5
   turnSpeed: 4
