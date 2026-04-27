@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Angelfish
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: angelfish
-  <fishFact>k__BackingField: lionfish are poisonous and invasive. ouch!
+  <fishFact>k__BackingField: With their tall, elegant fins and bold stripes, angelfish
+    glide through the water like living kites. They're one of the most popular fish
+    in home aquariums, but in the wild they patrol coral reefs and river basins,
+    guarding their territory with surprising attitude.
   <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
   modelPrefab: {fileID: 5112783603262785812, guid: d5cc797e914ae044fa0e1ac659b0710a, type: 3}
   acceleration: 5
