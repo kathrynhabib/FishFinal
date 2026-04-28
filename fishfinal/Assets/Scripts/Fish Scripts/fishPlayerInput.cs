@@ -7,6 +7,8 @@ public class fishPlayerInput : MonoBehaviour
     public fishMovement movement;
     public Transform fishCamera;
 
+    private Vector3 inputDir;
+
     void Awake()
     {
         movement = GetComponent<fishMovement>();
@@ -17,6 +19,12 @@ public class fishPlayerInput : MonoBehaviour
         handleMovement();
         handleRotation();
     }
+
+    void FixedUpdate()
+    {
+        ApplyMovement();
+    }
+
     void handleMovement()
     {
 
@@ -32,15 +40,17 @@ public class fishPlayerInput : MonoBehaviour
             moveUpDown -= 1f;
 
 
-        Vector3 inputDir = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
-
-        movement.applyMovement(inputDir);
-
+        inputDir = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
     }
     void handleRotation() 
     {
         Quaternion targetRotation = Quaternion.LookRotation(fishCamera.forward, Vector3.up);
         movement.applyRotation(targetRotation);
+    }
+
+    private void ApplyMovement()
+    {
+        movement.applyMovement(inputDir);
     }
 
 }
