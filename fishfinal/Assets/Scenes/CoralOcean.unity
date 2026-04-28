@@ -3812,6 +3812,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7221460866988797573, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: verticalEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7221460866988797573, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: horizontalEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4615939544628846362, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: FishData
       value: 
@@ -3831,6 +3839,10 @@ PrefabInstance:
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Interpolate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_CollisionDetection
