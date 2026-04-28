@@ -13,7 +13,7 @@ public class FishDiscoveryManager : MonoBehaviour
     public FishCounter counter;
     private HashSet<FishData> discovered = new HashSet<FishData>();
 
-    public int totalFish = 10;   // REMEMBER TO CHANGE 
+    public int totalFish = 38;   
 
     void Awake()
     {

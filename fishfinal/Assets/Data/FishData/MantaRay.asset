@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: MantaRay
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: manta ray
-  <fishFact>k__BackingField: i love mantas
-  <fishImage>k__BackingField: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}
+  <fishFact>k__BackingField: "The gentle giants of the ray world, manta rays can
+    have wingspans over 7 meters wide! Despite their size, they feed on some of the
+    tiniest creatures in the ocean \u2014 microscopic plankton. They're also believed
+    to be among the most intelligent fish, with the largest brain-to-body ratio of
+    any cold-blooded animal. "
+  <fishImage>k__BackingField: {fileID: 21300000, guid: 4276efc57cd3742c283789b90a443505, type: 3}
   modelPrefab: {fileID: 6237884590726109662, guid: bd74cf676f00bed4a82bae9ae5bfe623, type: 3}
   acceleration: 10
   turnSpeed: 4

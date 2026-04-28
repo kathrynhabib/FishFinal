@@ -1,9 +1,9 @@
 
 using UnityEngine;
-using TMPro;    // use Text if you don't have TextMeshPro
+using TMPro;    
 
 public class FishCounter : MonoBehaviour
-{// Updates the "X/Y fish discovered" text in the top of the screen.
+{
 
     public TMP_Text counterText;    
 
@@ -12,7 +12,6 @@ public class FishCounter : MonoBehaviour
     counterText.text = "0/0";
     }   
 
-    // called by FishDiscoveryManager each time a new fish is found
     public void UpdateCount(int current, int total)
     {
         counterText.text = current + "/" + total;
