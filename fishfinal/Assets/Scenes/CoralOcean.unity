@@ -1099,6 +1099,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1276683760}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 59.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 237.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 59.6
       objectReference: {fileID: 0}
@@ -1644,15 +1656,15 @@ PrefabInstance:
       objectReference: {fileID: 1276683760}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.541286
+      value: 64.9
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.38
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 155.33484
+      value: 238.9
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2712,7 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fishPatrol
-  patrolCenter: {x: 0, y: 0, z: 0}
+  patrolCenter: {x: 46.4, y: 5.9, z: 222.16}
   patrolExtents: {x: 10, y: 4, z: 10}
   arrivalDistance: 1.5
 --- !u!1 &848127531
@@ -3068,6 +3080,18 @@ PrefabInstance:
       propertyPath: fishCamera
       value: 
       objectReference: {fileID: 1276683760}
+    - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 46.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 222.16
+      objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.4
@@ -3899,7 +3923,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1885931183}
+    - targetCorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1885931182}
   m_SourcePrefab: {fileID: 100100000, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
 --- !u!1 &1224465027
 GameObject:
@@ -6531,6 +6561,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
   m_PrefabInstance: {fileID: 1217788943}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1885931182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387951779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishPatrol
+  patrolCenter: {x: 56.3, y: 6.4, z: 229.7}
+  patrolExtents: {x: 10, y: 4, z: 10}
+  arrivalDistance: 1.5
+--- !u!114 &1885931183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387951779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fishBehavior
+  detectionRadius: 6
+  safeRadius: 10
+  idleMinDuration: 1
+  idleMaxDuration: 3
 --- !u!1 &1970222576
 GameObject:
   m_ObjectHideFlags: 0
