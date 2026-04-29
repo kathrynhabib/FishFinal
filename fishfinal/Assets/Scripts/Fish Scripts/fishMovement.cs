@@ -24,12 +24,6 @@ public class fishMovement : MonoBehaviour
     }
     public void applyMovement(Vector3 inputDir)
     {
-        Debug.Log("applyMovement on: " + gameObject.name + 
-              " | input: " + inputDir + 
-              " | velocity: " + velocity + 
-              " | maxSpeed: " + maxSpeed + 
-              " | acceleration: " + acceleration);
-              
         Vector3 localInput = transform.InverseTransformDirection(inputDir);
 
         if (!horizontalEnabled)
@@ -38,13 +32,13 @@ public class fishMovement : MonoBehaviour
         if (!verticalEnabled)
             localInput.y = 0f;
 
-        if(localInput.magnitude > 0.01f)
+        if (localInput.magnitude > 0.01f)
         {
             Vector3 worldInput = transform.TransformDirection(localInput.normalized);
             rb.AddForce(worldInput * acceleration, ForceMode.Acceleration);
         }
 
-        if(rb.linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
