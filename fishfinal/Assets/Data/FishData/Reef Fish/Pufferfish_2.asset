@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Pufferfish_2
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: inflated pufferfish
-  <fishFact>k__BackingField: pufferfish have teeth
+  <fishFact>k__BackingField: "When threatened, pufferfish rapidly gulp water to inflate
+    themselves into a spiky balloon \u2014 making them nearly impossible to swallow.
+    As if that weren't enough, most species are also highly toxic. Yet in Japan,
+    pufferfish (called fugu) is considered a delicacy, prepared only by specially
+    licensed chefs. "
   <fishImage>k__BackingField: {fileID: 21300000, guid: 05d860bb32b404c629ad9742623e3116, type: 3}
   modelPrefab: {fileID: 5876045278795191282, guid: 6d465830704e1354e8f455c9c725516b, type: 3}
   acceleration: 5

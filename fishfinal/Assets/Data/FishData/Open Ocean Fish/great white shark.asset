@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
+  m_Name: great white shark
+  m_EditorClassIdentifier: Assembly-CSharp::FishData
+  <fishName>k__BackingField: Great White Shark
+  <fishFact>k__BackingField: "Great whites are apex predators that have patrolled
+    the oceans for over 400 million years \u2014 older than the dinosaurs. They can
+    detect a single drop of blood diluted across 100 liters of water. Despite their
+    fearsome reputation, great whites are naturally curious rather than aggressive
+    toward humans, and attacks are rare. They remain deeply misunderstood \u2014
+    and critically important to ocean ecosystems. "
+  <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  modelPrefab: {fileID: 8762868713211167639, guid: eb4eb99573ecf1d4c9c5b58f6155c0c2, type: 3}
+  acceleration: 5
+  turnSpeed: 3
+  slowingSpeed: 0.95
+  maxSpeed: 100
+  horizontalEnabled: 0
+  verticalEnabled: 1
+  colliderRadius: 1
+  cameraRadius: 3

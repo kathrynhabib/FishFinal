@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
+  m_Name: Lobster
+  m_EditorClassIdentifier: Assembly-CSharp::FishData
+  <fishName>k__BackingField: lobstah
+  <fishFact>k__BackingField: "Lobsters are surprisingly tough survivors: they don't
+    slow down or weaken with age the way most animals do, and some individuals are
+    thought to live over 100 years. They taste and smell with their legs, hear with
+    their bodies, and can regrow lost claws over time. Oh, and they were once so
+    common in North America that they were considered poor people's food \u2014 quite
+    the glow-up for today's dinner plate delicacy. "
+  <fishImage>k__BackingField: {fileID: 21300000, guid: e5b9d4c88daf643cbbdcb2da06bf3379, type: 3}
+  modelPrefab: {fileID: 2921414289500555329, guid: 214eb14885bce434898e833fa0e729ca, type: 3}
+  acceleration: 5
+  turnSpeed: 3
+  slowingSpeed: 0.97
+  maxSpeed: 200
+  horizontalEnabled: 1
+  verticalEnabled: 0
+  colliderRadius: 1
+  cameraRadius: 1

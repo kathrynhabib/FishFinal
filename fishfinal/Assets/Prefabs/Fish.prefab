@@ -61,9 +61,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 0
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &-4615939544628846362
 MonoBehaviour:
@@ -81,10 +81,6 @@ MonoBehaviour:
   isPlayer: 0
   mainCamera: {fileID: 0}
   thisPrefab: {fileID: 0}
-  selectableRadius: 10
-  fishLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &-7221460866988797573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::fishMovement
   acceleration: 10
   turnSpeed: 3
-  slowingSpeed: 0.99
+  drag: 2
   maxSpeed: 1.5
   horizontalEnabled: 0
   verticalEnabled: 0
@@ -130,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
   outlineMode: 1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 6.6
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 9.3
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -203,8 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Outline
   outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 5.77
+  outlineColor: {r: 1, g: 1, b: 0.007843138, a: 1}
+  outlineWidth: 9.25
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
