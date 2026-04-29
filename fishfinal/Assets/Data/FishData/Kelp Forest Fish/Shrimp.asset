@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Shrimp
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: shrimp
-  <fishFact>k__BackingField: '"Recently I had a dream where from the wast down the
-    only thing I was wearing were bright orange underwear with "Skrimp Queen" spelled
-    out in rhinestones on the a$$" - @_callmeclementine_'
-  <fishImage>k__BackingField: {fileID: 21300000, guid: bcd28fcd8ef384bb1a99b889c5342e93, type: 3}
+  <fishFact>k__BackingField: "Don't underestimate the shrimp \u2014 these tiny crustaceans
+    punch well above their weight. The pistol shrimp can snap its claw so fast it
+    creates a bubble that briefly reaches the temperature of the sun's surface, stunning
+    prey in an instant. Many shrimp species also serve as ocean \"cleaners,\" setting
+    up stations on reefs where fish line up to have parasites picked off \u2014 a
+    full-service spa, underwater style."
+  <fishImage>k__BackingField: {fileID: 21300000, guid: f4f3f26aae80f470093ee4971b450867, type: 3}
   modelPrefab: {fileID: 5805742676095273600, guid: 377c93a17029b1847b84cc5aba145e6a, type: 3}
   acceleration: 8
   turnSpeed: 3

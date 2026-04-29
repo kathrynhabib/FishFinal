@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
+  m_Name: hammerhead
+  m_EditorClassIdentifier: Assembly-CSharp::FishData
+  <fishName>k__BackingField: Hammerhead Shark
+  <fishFact>k__BackingField: "That wide, flat head isn't just strange-looking \u2014
+    it's a superpower. The hammerhead's eyes are positioned on each end, giving it
+    nearly 360-degree vision, and the broad surface is packed with electroreceptors
+    so sensitive they can detect the faint electrical field of a heartbeat hidden
+    under sand. They also commonly school in large groups during the day, which is
+    unusual behavior for sharks. "
+  <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  modelPrefab: {fileID: 2213127124792099078, guid: fbf23f8b9073ca941a795ccd800239da, type: 3}
+  acceleration: 5
+  turnSpeed: 3
+  slowingSpeed: 0.95
+  maxSpeed: 100
+  horizontalEnabled: 0
+  verticalEnabled: 1
+  colliderRadius: 1
+  cameraRadius: 3

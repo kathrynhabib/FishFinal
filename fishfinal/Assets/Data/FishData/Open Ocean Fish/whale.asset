@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
+  m_Name: whale
+  m_EditorClassIdentifier: Assembly-CSharp::FishData
+  <fishName>k__BackingField: Whale
+  <fishFact>k__BackingField: "Whales are the largest animals to have ever existed
+    on Earth \u2014 a blue whale's heart alone is the size of a small car. They communicate
+    through complex songs that can travel thousands of kilometers through the ocean,
+    and some populations have distinct \"dialects\" passed down through generations.
+    Whales also play a huge role in ocean health: their nutrient-rich waste feeds
+    the plankton that produce half of Earth's oxygen."
+  <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  modelPrefab: {fileID: 4440015863153704474, guid: 9ffd15d7289f8324f912ce483f1e29b0, type: 3}
+  acceleration: 5
+  turnSpeed: 3
+  slowingSpeed: 0.95
+  maxSpeed: 100
+  horizontalEnabled: 0
+  verticalEnabled: 1
+  colliderRadius: 1
+  cameraRadius: 3

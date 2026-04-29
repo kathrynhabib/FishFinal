@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Lobster
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: lobstah
-  <fishFact>k__BackingField: also yummy on a roll
-  <fishImage>k__BackingField: {fileID: 21300000, guid: bcd28fcd8ef384bb1a99b889c5342e93, type: 3}
+  <fishFact>k__BackingField: "Lobsters are surprisingly tough survivors: they don't
+    slow down or weaken with age the way most animals do, and some individuals are
+    thought to live over 100 years. They taste and smell with their legs, hear with
+    their bodies, and can regrow lost claws over time. Oh, and they were once so
+    common in North America that they were considered poor people's food \u2014 quite
+    the glow-up for today's dinner plate delicacy. "
+  <fishImage>k__BackingField: {fileID: 21300000, guid: e5b9d4c88daf643cbbdcb2da06bf3379, type: 3}
   modelPrefab: {fileID: 2921414289500555329, guid: 214eb14885bce434898e833fa0e729ca, type: 3}
   acceleration: 5
   turnSpeed: 3
