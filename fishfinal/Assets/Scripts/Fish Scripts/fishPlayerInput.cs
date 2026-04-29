@@ -13,9 +13,12 @@ public class fishPlayerInput : MonoBehaviour
 
     public static event Action OnSwitchRequested;
 
+    private FishAbilityController abilityController;
+
     void Awake()
     {
         movement = GetComponent<fishMovement>();
+        abilityController = GetComponent<FishAbilityController>();
     }
 
     void Update()
@@ -23,9 +26,19 @@ public class fishPlayerInput : MonoBehaviour
         handleMovement();
         handleRotation();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) // might do e instead so lshift can be for dashing?
+        if (Input.GetKeyDown(KeyCode.E)) // might do e instead so lshift can be for dashing?
         {
             OnSwitchRequested?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) // dash
+        {
+            abilityController.ActivateAbility(0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt)) // transform
+        {
+            abilityController.ActivateAbility(1);
         }
     }
 

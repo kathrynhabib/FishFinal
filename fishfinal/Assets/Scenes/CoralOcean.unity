@@ -513,8 +513,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
-  m_sharedMaterial: {fileID: 5788928370630033584, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2473,8 +2473,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'fish name '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
-  m_sharedMaterial: {fileID: 5788928370630033584, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3240,8 +3240,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: fish fact
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
-  m_sharedMaterial: {fileID: 5788928370630033584, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3887,7 +3887,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1885931182}
   m_SourcePrefab: {fileID: 100100000, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
 --- !u!1 &1224465027
 GameObject:
@@ -3950,8 +3953,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
-  m_sharedMaterial: {fileID: 5788928370630033584, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5429,8 +5432,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
-  m_sharedMaterial: {fileID: 5788928370630033584, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6088,8 +6091,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
-  m_sharedMaterial: {fileID: 5788928370630033584, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6225,8 +6228,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
-  m_sharedMaterial: {fileID: 5788928370630033584, guid: 1bd667d3d44734011a6ea7502617ae80, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6523,6 +6526,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
   m_PrefabInstance: {fileID: 1217788943}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1885931182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387951779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9f978985e51f4478a01c2c071c26fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DashAbility
+  dashSpeed: 10
+  coolDown: 5
 --- !u!1 &1970222576
 GameObject:
   m_ObjectHideFlags: 0
@@ -6654,7 +6671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 140.07
+      value: 234.39
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6687,13 +6704,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2007990049}
   m_SourcePrefab: {fileID: 100100000, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
 --- !u!1 &2007990040 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
   m_PrefabInstance: {fileID: 2007990039}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007990049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007990040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7358f682078d6cc46af16a151b7660ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransformAbility
+  models:
+  - {fileID: 2615873326568862253, guid: 5c0d17115700f1d43b18e426d0111415, type: 3}
+  - {fileID: 5876045278795191282, guid: 6d465830704e1354e8f455c9c725516b, type: 3}
+  coolDown: 5
 --- !u!1 &2014136515
 GameObject:
   m_ObjectHideFlags: 0
