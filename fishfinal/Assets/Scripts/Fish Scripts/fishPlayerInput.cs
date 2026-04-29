@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class fishPlayerInput : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class fishPlayerInput : MonoBehaviour
 
     private Vector3 inputDir;
     private Quaternion targetRotation;
+
+    public static event Action OnSwitchRequested;
 
     void Awake()
     {
@@ -19,12 +22,18 @@ public class fishPlayerInput : MonoBehaviour
     {
         handleMovement();
         handleRotation();
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) // might do e instead so lshift can be for dashing?
+        {
+            OnSwitchRequested?.Invoke();
+        }
     }
 
     void FixedUpdate()
     {
         ApplyMovement();
         ApplyRotation();
+
     }
 
     void handleMovement()
@@ -56,7 +65,7 @@ public class fishPlayerInput : MonoBehaviour
 
     private void ApplyRotation()
     {
-        movement.applyRotation(targetRotation);
+        movement.applyRotation(targetRotation); 
     }
 
 }

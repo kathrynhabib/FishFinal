@@ -20,7 +20,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     // for adding confirmation for switching
 
-    private fishDataController selectedFish;
+    //private fishDataController selectedFish;
     private Outline outline;
 
     // should also now provide camera offset dimensions to the cinemachine, along w a setting for mouse sens
@@ -34,7 +34,6 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     void Start()
     {
-        
         playerInput = GetComponent<fishPlayerInput>();
         aiBehavior = GetComponent<fishBehavior>();
         movement = GetComponent<fishMovement>();
@@ -47,39 +46,24 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         }
 
         applyFishData();
-        updateControlState();
-
 
         if (isPlayer)
+        {
+            SwitchManager.Instance.AssignPlayer(this);
             FishDiscoveryManager.Instance.Discover(FishData);
+            SetPlayer();
+        }
+        else
+        {
+            SetAI();
+        }
     }
 
     void Update()
     {
         if (!isPlayer) return;
-
         if (SwitchConfirmPopup.Instance != null && SwitchConfirmPopup.Instance.IsOpen) return;
-
         highlightNearby();
-        
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-            trySelectFish();
-    }
-
-    public void updateControlState()
-    {
-        if (playerInput != null)
-            playerInput.enabled = isPlayer;
-
-        if (aiBehavior != null)
-        {
-            if (!isPlayer) aiBehavior.enable();  
-            else           aiBehavior.disable();
-        }
-
-        // update tracker so other fish know who the player is
-        if (isPlayer)
-            PlayerFishTracker.Current = transform;
     }
 
     void applyFishData()
@@ -106,7 +90,11 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         if (modelContainer != null)
         {
             foreach (Transform child in modelContainer)
+            {
                 Destroy(child.gameObject);
+
+                Debug.Log(gameObject.name + " was destroyed!");
+            }
 
             GameObject model = Instantiate(FishData.modelPrefab, modelContainer);
 
@@ -118,65 +106,6 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
             outline.enabled = false;
         }
 
-    }
-
-    // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), select.
-    // hit left shift again to confirm switch
-    private void trySelectFish()
-    {
-        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-
-        if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 100f))
-        {
-            fishDataController targetFish = hit.collider.GetComponentInParent<fishDataController>();
-
-            if (targetFish != null && targetFish != this && targetFish.tag == "fish")
-            {
-                selectedFish = targetFish;
-                selectedFish.setHighlight(Color.white);
-                Debug.Log("making selected fish white");
-
-                SwitchConfirmPopup.Instance.Show(targetFish.FishData.fishName,
-                    () =>
-                    {
-                        Debug.LogError("first selection screen triggered"); 
-                        trySwitchFish(targetFish);
-                        clearSelection();
-                    },
-                    () =>
-                    {
-                        Debug.LogError("cancel screen triggered"); 
-                        clearSelection();
-                    }
-                );
-            }
-        }
-    }
-
-    void trySwitchFish(fishDataController target)
-    {
-        fishCameraController camControl = mainCamera.GetComponent<fishCameraController>();
-        
-        camControl.setTarget(target.thisPrefab.transform);
-        camControl.setRadius(target.FishData.cameraRadius);
-
-
-        // also set interp and collision detect
-        rb.interpolation = RigidbodyInterpolation.None;
-        rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
-
-        target.rb.interpolation = RigidbodyInterpolation.Interpolate;
-        target.rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-
-
-        isPlayer = false;
-        updateControlState();       // AI on for old fish, playerInput off
-
-        target.isPlayer = true;
-        target.unhighlight();
-        target.updateControlState(); // AI off for new fish, playerInput on
-
-        FishDiscoveryManager.Instance.Discover(target.FishData);
     }
 
     void highlightNearby()
@@ -206,7 +135,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     }
 
-    void setHighlight(Color color)
+    public void setHighlight(Color color)
     {
         if (outline != null)
         {
@@ -216,7 +145,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         }
     }
 
-    void unhighlight()
+    public void unhighlight()
     {
         if (outline != null)
         {
@@ -224,17 +153,54 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         }
     }
 
-    void clearSelection()
+    public void clearSelection(fishDataController fish)
     {
-        if (highlightedFish.Contains(selectedFish))
+        if (highlightedFish.Contains(fish))
         {
-            selectedFish.setHighlight(Color.yellow);
+            fish.setHighlight(Color.yellow);
         }
         else
         {
-            selectedFish.unhighlight();
+            fish.unhighlight();
         }
-        selectedFish = null;
+    }
+
+    public void SetPlayer()
+    {
+        isPlayer = true;
+
+        if (playerInput != null)
+        {
+            playerInput.enabled = true;
+        }
+        if (aiBehavior != null)
+        {
+            aiBehavior.disable();
+        }
+
+        // update tracker so other fish know who the player is
+        PlayerFishTracker.Current = transform;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        SwitchManager.Instance.AssignPlayer(this);
+    }
+
+    public void SetAI()
+    {
+        isPlayer = false;
+
+        if (playerInput != null)
+        {
+            playerInput.enabled = false;
+        }
+        if (aiBehavior != null)
+        {
+            aiBehavior.enable();
+        }
+
+        rb.interpolation = RigidbodyInterpolation.None;
+        rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
     }
 }
 
