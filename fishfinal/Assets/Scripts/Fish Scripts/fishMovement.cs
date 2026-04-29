@@ -24,6 +24,12 @@ public class fishMovement : MonoBehaviour
     }
     public void applyMovement(Vector3 inputDir)
     {
+        Debug.Log("applyMovement on: " + gameObject.name + 
+              " | input: " + inputDir + 
+              " | velocity: " + velocity + 
+              " | maxSpeed: " + maxSpeed + 
+              " | acceleration: " + acceleration);
+              
         Vector3 localInput = transform.InverseTransformDirection(inputDir);
 
         if (!horizontalEnabled)
