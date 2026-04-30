@@ -1287,6 +1287,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 325944796}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -148558447315761640, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: outlineMode
       value: 0
@@ -1305,15 +1309,15 @@ PrefabInstance:
       objectReference: {fileID: 1276683760}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 59.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 11.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 237.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1778,6 +1782,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 1118015230}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: lionfish
@@ -1928,6 +1936,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 480422118}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: stingray_grey
@@ -2998,7 +3010,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831213148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
   m_Name: 
@@ -3014,7 +3026,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831213148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
   m_Name: 
@@ -3355,10 +3367,18 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -7221460866988797573, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4615939544628846362, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: FishData
       value: 
       objectReference: {fileID: 11400000, guid: 43e1c6d6777485745a1429396ccb44d6, type: 2}
+    - target: {fileID: -4615939544628846362, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4615939544628846362, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: mainCamera
       value: 
@@ -3367,25 +3387,41 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 831213148}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -148558447315761640, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: bluetang
       objectReference: {fileID: 0}
     - target: {fileID: 1698510992309266160, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698510992309266160, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: fishCamera
       value: 
       objectReference: {fileID: 1276683760}
+    - target: {fileID: 3494992869510047505, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 46.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 222.16
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3458,6 +3494,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 949785034}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: yellow_seahorse
@@ -3714,6 +3754,10 @@ MonoBehaviour:
   infoPopup: {fileID: 1317594797}
   counter: {fileID: 143211085}
   totalFish: 10
+  coralReefFish: []
+  onCoralReefCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1013875219
 Transform:
   m_ObjectHideFlags: 0
@@ -3907,6 +3951,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 1085784595}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: royalgramma
@@ -3985,6 +4033,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 1103868542}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: pufferfish_2
@@ -4206,6 +4258,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7221460866988797573, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7221460866988797573, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: verticalEnabled
       value: 1
       objectReference: {fileID: 0}
@@ -4244,6 +4300,10 @@ PrefabInstance:
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: clownfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698510992309266160, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1698510992309266160, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: fishCamera
@@ -4296,13 +4356,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1885931183}
-    - targetCorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1885931182}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
 --- !u!1001 &1218204816
 PrefabInstance:
@@ -4559,6 +4613,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 1247642088}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: emperor_angelfish
@@ -5824,6 +5882,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 1454193218}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: stingray_brown
@@ -6288,6 +6350,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 1553947450}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: angelfish
@@ -6414,6 +6480,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: Fish
@@ -6651,6 +6721,10 @@ MonoBehaviour:
   infoPopup: {fileID: 1317594797}
   counter: {fileID: 143211085}
   totalFish: 10
+  coralReefFish: []
+  onCoralReefCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1709166459
 Transform:
   m_ObjectHideFlags: 0
@@ -7457,37 +7531,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4760044722692902666, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
   m_PrefabInstance: {fileID: 1217788943}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1885931182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387951779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f00454b5add84c178475b4b8d664d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishPatrol
-  patrolCenter: {x: 56.3, y: 6.4, z: 229.7}
-  patrolExtents: {x: 10, y: 4, z: 10}
-  arrivalDistance: 1.5
---- !u!114 &1885931183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387951779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc49eaa53e06e14b8b0e0a4e845baa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::fishBehavior
-  detectionRadius: 6
-  safeRadius: 10
-  idleMinDuration: 1
-  idleMaxDuration: 3
 --- !u!1001 &1916323961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7675,6 +7718,10 @@ PrefabInstance:
       propertyPath: thisPrefab
       value: 
       objectReference: {fileID: 2007990040}
+    - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
       value: pufferfish_1
