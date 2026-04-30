@@ -13,20 +13,12 @@ public class fishPlayerInput : MonoBehaviour
 
     public static event Action OnSwitchRequested;
 
-<<<<<<< HEAD
     private FishAbilityController abilityController;
-=======
-    //private FishAbilityController abilityController;
->>>>>>> 0bd06f9c831b4b3a2d0af36a5efaa8d83bd7f3bf
 
     void Awake()
     {
         movement = GetComponent<fishMovement>();
-<<<<<<< HEAD
         abilityController = GetComponent<FishAbilityController>();
-=======
-        //abilityController = GetComponent<FishAbilityController>();
->>>>>>> 0bd06f9c831b4b3a2d0af36a5efaa8d83bd7f3bf
     }
 
     void Update()
@@ -39,11 +31,7 @@ public class fishPlayerInput : MonoBehaviour
             OnSwitchRequested?.Invoke();
         }
 
-<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.LeftShift)) // dash
-=======
-        /* if (Input.GetKeyDown(KeyCode.LeftShift))
->>>>>>> 0bd06f9c831b4b3a2d0af36a5efaa8d83bd7f3bf
         {
             abilityController.ActivateAbility(0);
         }
@@ -52,10 +40,6 @@ public class fishPlayerInput : MonoBehaviour
         {
             abilityController.ActivateAbility(1);
         }
-<<<<<<< HEAD
-=======
-        */
->>>>>>> 0bd06f9c831b4b3a2d0af36a5efaa8d83bd7f3bf
     }
 
     void FixedUpdate()
