@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;   
 
 public class FishDiscoveryManager : MonoBehaviour
@@ -13,7 +14,14 @@ public class FishDiscoveryManager : MonoBehaviour
     public FishCounter counter;
     private HashSet<FishData> discovered = new HashSet<FishData>();
 
-    public int totalFish = 38;   
+    public int totalFish = 38;  
+
+    //new
+    [Header("Region Unlock")]
+    public List<FishData> coralReefFish;        
+    public UnityEvent onCoralReefCompleted;
+    private bool coralReefUnlocked = false;
+    //new 
 
     void Awake()
     {
@@ -41,8 +49,27 @@ public class FishDiscoveryManager : MonoBehaviour
 
             if (EncyclopediaManagerScript.Instance != null) EncyclopediaManagerScript.Instance.printEntries();
             else Debug.LogError("EncyclopediaManagerScript.Instance is null!");
+
+            CheckCoralReefComplete(); //new
         }
     }
+
+    //new
+    void CheckCoralReefComplete()
+    {
+        if (coralReefUnlocked) return;
+        if (coralReefFish == null || coralReefFish.Count == 0) return;
+
+        foreach (FishData fish in coralReefFish)
+        {
+            if (!discovered.Contains(fish)) return;
+        }
+
+        coralReefUnlocked = true;
+        Debug.Log("Coral reef complete! Firing unlock event.");
+        onCoralReefCompleted?.Invoke();
+    }
+    //new
 
     public HashSet<FishData> GetDiscoveredFish()
     {
