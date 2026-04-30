@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1698510992309266160}
   - component: {fileID: -148558447315761640}
   - component: {fileID: 3494992869510047505}
+  - component: {fileID: 4432560070420219957}
   m_Layer: 0
   m_Name: Fish
   m_TagString: fish
@@ -81,6 +82,10 @@ MonoBehaviour:
   isPlayer: 0
   mainCamera: {fileID: 0}
   thisPrefab: {fileID: 0}
+  selectableRadius: 0
+  fishLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-7221460866988797573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +159,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4432560070420219957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532881155215545493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4f46f394483f746baef9c3a4d4388d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishAbilityController
 --- !u!1 &4074588677294700974
 GameObject:
   m_ObjectHideFlags: 0
