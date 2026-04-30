@@ -7,7 +7,6 @@ public class EncyclopediaManagerScript : MonoBehaviour
     [SerializeField] public GameObject EncyclopediaEntry;
     [SerializeField] public Transform Content;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
@@ -25,6 +24,7 @@ public class EncyclopediaManagerScript : MonoBehaviour
     }
 
     public void printEntries()
+    #region Claude generated
     {
          if (FishDiscoveryManager.Instance == null)
         {
@@ -44,4 +44,5 @@ public class EncyclopediaManagerScript : MonoBehaviour
             entry.GetComponent<EncyclopediaEntry>().Setup(fish);
         }
     }
+    #endregion 
 }
