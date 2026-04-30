@@ -1,11 +1,17 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class fishPlayerInput : MonoBehaviour
 {
     public fishMovement movement;
     public Transform fishCamera;
+
+    private Vector3 inputDir;
+    private Quaternion targetRotation;
+
+    public static event Action OnSwitchRequested;
 
     void Awake()
     {
@@ -16,7 +22,20 @@ public class fishPlayerInput : MonoBehaviour
     {
         handleMovement();
         handleRotation();
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) // might do e instead so lshift can be for dashing?
+        {
+            OnSwitchRequested?.Invoke();
+        }
     }
+
+    void FixedUpdate()
+    {
+        ApplyMovement();
+        ApplyRotation();
+
+    }
+
     void handleMovement()
     {
 
@@ -30,17 +49,24 @@ public class fishPlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl))
             moveUpDown -= 1f;
+        
+        Debug.Log("input H: " + moveLeftRight + " V: " + moveForwardBack + " camera forward: " + fishCamera.forward);
 
-
-        Vector3 inputDir = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
-
-        movement.applyMovement(inputDir);
-
+        inputDir = fishCamera.right * moveLeftRight + fishCamera.forward * moveForwardBack + fishCamera.up * moveUpDown;
     }
     void handleRotation() 
     {
-        Quaternion targetRotation = Quaternion.LookRotation(fishCamera.forward, Vector3.up);
-        movement.applyRotation(targetRotation);
+        targetRotation = Quaternion.LookRotation(fishCamera.forward, Vector3.up);
+    }
+
+    private void ApplyMovement()
+    {
+        movement.applyMovement(inputDir);
+    }
+
+    private void ApplyRotation()
+    {
+        movement.applyRotation(targetRotation); 
     }
 
 }

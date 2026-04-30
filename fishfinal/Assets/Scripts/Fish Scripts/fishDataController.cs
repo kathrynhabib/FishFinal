@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,70 +20,64 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     // for adding confirmation for switching
 
-    private fishDataController selectedFish;
+    //private fishDataController selectedFish;
     private Outline outline;
 
     // should also now provide camera offset dimensions to the cinemachine, along w a setting for mouse sens
     public GameObject thisPrefab;
     private Rigidbody rb;
 
+    // for adding highlights to selectable fish
+    public float selectableRadius;
+    private List<fishDataController> highlightedFish = new List<fishDataController>();
+    public LayerMask fishLayer;
+
     void Start()
     {
-        
         playerInput = GetComponent<fishPlayerInput>();
         aiBehavior = GetComponent<fishBehavior>();
         movement = GetComponent<fishMovement>();
         outline = GetComponent<Outline>();
         rb = GetComponent<Rigidbody>();
 
-        if (outline != null) outline.enabled = false;
+        if (outline != null)
+        {
+            outline.enabled = false;
+        }
 
         applyFishData();
-        updateControlState();
-
 
         if (isPlayer)
+        {
+            SwitchManager.Instance.AssignPlayer(this);
             FishDiscoveryManager.Instance.Discover(FishData);
+            SetPlayer();
+        }
+        else
+        {
+            SetAI();
+        }
     }
 
     void Update()
     {
         if (!isPlayer) return;
-
         if (SwitchConfirmPopup.Instance != null && SwitchConfirmPopup.Instance.IsOpen) return;
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-            trySelectFish();
-    }
-
-    public void updateControlState()
-    {
-        if (playerInput != null)
-            playerInput.enabled = isPlayer;
-
-        if (aiBehavior != null)
-        {
-            if (!isPlayer) aiBehavior.enable();  
-            else           aiBehavior.disable();
-        }
-
-        // update tracker so other fish know who the player is
-        if (isPlayer)
-            PlayerFishTracker.Current = transform;
+        highlightNearby();
     }
 
     void applyFishData()
     {
         if (FishData == null)
         {
-            Debug.LogError("attach FishData pls");
+            Debug.LogError("attach" + this.name + " FishData pls");
             return;
         }
 
         movement.acceleration    = FishData.acceleration;
         movement.turnSpeed       = FishData.turnSpeed;
         movement.maxSpeed        = FishData.maxSpeed;
-        movement.slowingSpeed    = FishData.slowingSpeed;
+        movement.drag              = FishData.slowingSpeed;
         movement.horizontalEnabled = FishData.horizontalEnabled;
         movement.verticalEnabled   = FishData.verticalEnabled;
 
@@ -89,88 +85,122 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         if (col != null)
             col.radius = FishData.colliderRadius;
 
+        /* the 13 lines below are AI generated*/
         Transform modelContainer = transform.Find("ModelContainer");
         if (modelContainer != null)
         {
             foreach (Transform child in modelContainer)
+            {
                 Destroy(child.gameObject);
 
-            Instantiate(FishData.modelPrefab, modelContainer);
+                Debug.Log(gameObject.name + " was destroyed!");
+            }
+
+            GameObject model = Instantiate(FishData.modelPrefab, modelContainer);
+
+            outline = model.GetComponent<Outline>();
+
+            if (outline == null)
+                outline = model.AddComponent<Outline>();
+
+            outline.enabled = false;
         }
+
     }
 
-    // for switching, player presses shift to switch into a fish theyre looking at. if the other fish is roughly in the center of the screen (raycast), select.
-    // hit left shift again to confirm switch
-    private void trySelectFish()
+    void highlightNearby()
     {
-        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-
-        if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 100f))
+        foreach (var fish in highlightedFish) // refreshing
         {
-            fishDataController targetFish = hit.collider.GetComponentInParent<fishDataController>();
-
-            if (targetFish != null && targetFish != this && targetFish.tag == "fish")
+            if (fish != null)
             {
-                selectedFish = targetFish;
-                highlightSelection();
-
-
-                SwitchConfirmPopup.Instance.Show(targetFish.FishData.fishName,
-                    () =>
-                    {
-                        trySwitchFish(targetFish);
-                        clearSelection();
-                    },
-                    () =>
-                    {
-                        clearSelection();
-                    }
-                );
+                fish.unhighlight();
             }
         }
+        highlightedFish.Clear();
+
+        Collider[] hits = Physics.OverlapSphere(transform.position, selectableRadius, fishLayer);
+
+        foreach (var hit in hits)
+        {
+            fishDataController toHighlight = hit.GetComponent<fishDataController>();
+            if (toHighlight != null && toHighlight != this)
+            {
+                toHighlight.setHighlight(Color.yellow);
+                highlightedFish.Add(toHighlight);
+
+                Debug.Log(toHighlight.FishData.fishName);
+            }
+        }
+
     }
 
-    void trySwitchFish(fishDataController target)
+    public void setHighlight(Color color)
     {
-        fishCameraController camControl = mainCamera.GetComponent<fishCameraController>();
-        
-        camControl.setTarget(target.thisPrefab.transform);
-        camControl.setRadius(target.FishData.cameraRadius);
+        if (outline != null)
+        {
+            Debug.Log("highlighting this dih");
+            outline.enabled = true;
+            outline.OutlineColor = color;
+        }
+    }
 
+    public void unhighlight()
+    {
+        if (outline != null)
+        {
+            outline.enabled = false;
+        }
+    }
 
-        // also set interp and collision detect
+    public void clearSelection(fishDataController fish)
+    {
+        if (highlightedFish.Contains(fish))
+        {
+            fish.setHighlight(Color.yellow);
+        }
+        else
+        {
+            fish.unhighlight();
+        }
+    }
+
+    public void SetPlayer()
+    {
+        isPlayer = true;
+
+        if (playerInput != null)
+        {
+            playerInput.enabled = true;
+        }
+        if (aiBehavior != null)
+        {
+            aiBehavior.disable();
+        }
+
+        // update tracker so other fish know who the player is
+        PlayerFishTracker.Current = transform;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        SwitchManager.Instance.AssignPlayer(this);
+    }
+
+    public void SetAI()
+    {
+        isPlayer = false;
+
+        if (playerInput != null)
+        {
+            playerInput.enabled = false;
+        }
+        if (aiBehavior != null)
+        {
+            aiBehavior.enable();
+        }
+
         rb.interpolation = RigidbodyInterpolation.None;
         rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
-
-        target.rb.interpolation = RigidbodyInterpolation.Interpolate;
-        target.rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-
-
-        isPlayer = false;
-        updateControlState();       // AI on for old fish, playerInput off
-
-        target.isPlayer = true;
-        target.updateControlState(); // AI off for new fish, playerInput on
-
-        FishDiscoveryManager.Instance.Discover(target.FishData);
-    }
-
-    void highlightSelection()
-    {
-        if (selectedFish != null && selectedFish.outline != null)
-            selectedFish.outline.enabled = true;
-    }
-
-    void unhighlightSelection()
-    {
-        if (selectedFish != null && selectedFish.outline != null)
-            selectedFish.outline.enabled = false;
-    }
-
-    void clearSelection()
-    {
-        unhighlightSelection();
-        selectedFish = null;
     }
 }
 

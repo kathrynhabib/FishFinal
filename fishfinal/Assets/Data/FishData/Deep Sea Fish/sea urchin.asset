@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
+  m_Name: sea urchin
+  m_EditorClassIdentifier: Assembly-CSharp::FishData
+  <fishName>k__BackingField: Black Sea Urchin
+  <fishFact>k__BackingField: "Sea urchins are essentially a mouth on the ocean floor
+    \u2014 their entire underside is a jaw-like structure called Aristotle's lantern,
+    capable of scraping algae straight off rock. Those long, black spines aren't
+    just defensive; they also help the urchin move and wedge itself into crevices.
+    In healthy reefs, urchins are vital grazers \u2014 but when their numbers explode,
+    they can turn a coral reef into a barren rock field. "
+  <fishImage>k__BackingField: {fileID: 21300000, guid: d3571ef9b39f44d10ba3097891deb682, type: 3}
+  modelPrefab: {fileID: 7948747317296974253, guid: 824a389283a20fa40b0b36bb296a5ce7, type: 3}
+  acceleration: 5
+  turnSpeed: 3
+  slowingSpeed: 0.95
+  maxSpeed: 100
+  horizontalEnabled: 0
+  verticalEnabled: 1
+  colliderRadius: 1
+  cameraRadius: 3

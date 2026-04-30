@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e152aa08d3a541a8a36b2ec283c8857, type: 3}
+  m_Name: anglerfish
+  m_EditorClassIdentifier: Assembly-CSharp::FishData
+  <fishName>k__BackingField: Anglerfish
+  <fishFact>k__BackingField: "The deep-sea anglerfish lives in total darkness and
+    hunts with a bioluminescent lure dangling from its head like a built-in fishing
+    rod, drawing in curious prey before snapping them up with its enormous jaws.
+    The male anglerfish is dramatically smaller than the female \u2014 and when he
+    finds a mate, he bites into her side and physically fuses with her body, sharing
+    her bloodstream for the rest of his life. Squid \u2014 Squid are jet-propelled,
+    color-changing, ink-squirting masters of the open ocean. They have three hearts,
+    blue blood, and eyes remarkably similar to human eyes despite evolving completely
+    separately. They're also among the most intelligent invertebrates alive, capable
+    of problem-solving and rapid learning. In a pinch, they can sacrifice a tentacle
+    to a predator and simply grow it back. Giant Squid \u2014 For centuries, giant
+    squid were the stuff of pure legend \u2014 no living specimen had ever been photographed
+    until 2004. They can grow over 12 meters long, with eyes the size of dinner plates
+    (the largest of any living animal) to gather light in the pitch-black deep ocean.
+    Their main predator is the sperm whale, and the two regularly do battle in the
+    deep \u2014 sperm whales are often found with giant sucker-shaped scars to prove
+    it. Black Sea Urchin \u2014 Sea urchins are essentially a mouth on the ocean
+    floor \u2014 their entire underside is a jaw-like structure called Aristotle's
+    lantern, capable of scraping algae straight off rock. Those long, black spines
+    aren't just defensive; they also help the urchin move and wedge itself into crevices.
+    In healthy reefs, urchins are vital grazers \u2014 but when their numbers explode,
+    they can turn a coral reef into a barren rock field. Ray \u2014 Rays are essentially
+    flattened sharks that took up life on the seafloor. They glide through the water
+    by rippling their wide, wing-like fins in a motion that looks almost like slow-motion
+    flying. Most species are completely harmless, filter-feeding or hunting mollusks
+    buried in sand, which they crush with flat, plate-like teeth. Some rays can also
+    generate electricity \u2014 using it to sense their environment and stun prey.
+    Snakefish (Snakehead / Oarfish) \u2014 (Let me know which you mean \u2014 here's
+    both!)  Snakehead Fish \u2014 Snakeheads are freshwater predators so tough they
+    can breathe air and survive out of water for several days, crossing land between
+    rivers if they have to. They're powerful ambush hunters with a mouthful of sharp
+    teeth, and in regions where they've been introduced outside their native range,
+    they've become one of the most disruptive invasive species known to science.
+    Oarfish \u2014 The oarfish is the longest bony fish alive, reaching up to 11
+    meters, with a shimmering silver body, a red spiky crest running the length of
+    its back, and almost no tail to speak of. They live in deep water and are almost
+    never seen alive \u2014 which is exactly why, for centuries, these rare creatures
+    washing ashore were likely the origin of sea serpent legends.   A couple of extra
+    notes for the game design side:  Mosasaurus and Plesiosaur as bosses is a great
+    idea \u2014 framing them as ancient, legendary creatures the player encounters
+    in special zones (deep sea, volcanic vents, ancient ruins) would fit perfectly
+    with the discovery mechanic. You might consider grouping Ammonite, Trilobite,
+    Mosasaurus, and Plesiosaur into a special \"Ancient Oceans\" unlock category
+    \u2014 a nice reward for players who've already discovered most modern species. "
+  <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  modelPrefab: {fileID: 6800989794528433952, guid: e316e4694544d494499614806372ccc1, type: 3}
+  acceleration: 5
+  turnSpeed: 3
+  slowingSpeed: 0.95
+  maxSpeed: 100
+  horizontalEnabled: 0
+  verticalEnabled: 1
+  colliderRadius: 1
+  cameraRadius: 3

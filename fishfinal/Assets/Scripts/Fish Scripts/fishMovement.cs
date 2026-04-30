@@ -8,20 +8,20 @@ public class fishMovement : MonoBehaviour
 
     public float acceleration = 10;
     public float turnSpeed = 3f; // turning speed of the fish
-    public float slowingSpeed = .99f;
+    public float drag = 2f;
     public float maxSpeed = 1.5f; // should vary per fish
 
     public bool horizontalEnabled;
     public bool verticalEnabled;
 
     private Rigidbody rb;
-    private Vector3 velocity;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.linearDamping = drag;
     }
-
     public void applyMovement(Vector3 inputDir)
     {
         Vector3 localInput = transform.InverseTransformDirection(inputDir);
@@ -32,20 +32,16 @@ public class fishMovement : MonoBehaviour
         if (!verticalEnabled)
             localInput.y = 0f;
 
-        inputDir = transform.TransformDirection(localInput);
-
-        if (inputDir.magnitude > 0.01f)
+        if (localInput.magnitude > 0.01f)
         {
-            inputDir.Normalize();
+            Vector3 worldInput = transform.TransformDirection(localInput.normalized);
+            rb.AddForce(worldInput * acceleration, ForceMode.Acceleration);
+        }
 
-            velocity += inputDir * acceleration * Time.deltaTime;
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
-        }
-        else // smoothing slowing
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
-            velocity *= slowingSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
-        rb.MovePosition(rb.position + velocity * Time.deltaTime);
 
     }
 
