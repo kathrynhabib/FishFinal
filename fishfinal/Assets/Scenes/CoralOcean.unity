@@ -2240,6 +2240,7 @@ GameObject:
   - component: {fileID: 492020948}
   - component: {fileID: 492020947}
   - component: {fileID: 492020946}
+  - component: {fileID: 492020949}
   m_Layer: 0
   m_Name: KelpWall
   m_TagString: Untagged
@@ -2318,6 +2319,24 @@ Transform:
   - {fileID: 138760072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492020949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492020945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecec214002dd457fb2227328b2b29c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KelpWallUnlock
+  kelpWallCamera: {fileID: 1359350815}
+  playerCamera: {fileID: 540586137}
+  kelpWallAnimator: {fileID: 492020946}
+  openAnimationTrigger: Open
+  openAnimationLength: 3.4
+  kelpWallCollider: {fileID: 492020947}
 --- !u!1001 &533347610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5890,7 +5909,7 @@ Transform:
   m_GameObject: {fileID: 1359350814}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00019951805, y: 0.9970884, z: 0.008688174, w: 0.075758375}
-  m_LocalPosition: {x: 141.323, y: 25.635, z: 177.048}
+  m_LocalPosition: {x: 148.54, y: 25.6, z: 178.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

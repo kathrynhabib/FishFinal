@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 
 public class KelpWallUnlock : MonoBehaviour
 {
+    #region Claude generated
     [Header("Cinemachine")]
     public CinemachineCamera kelpWallCamera;   // drag KelpWallCamera here
     public CinemachineCamera playerCamera;     // drag your existing CinemachineCamera here
@@ -20,6 +21,15 @@ public class KelpWallUnlock : MonoBehaviour
         FishDiscoveryManager.Instance.onCoralReefCompleted.AddListener(OnCoralReefCompleted);
     }
 
+//delete update used for testing
+    void Update()
+{
+    if (Input.GetKeyDown(KeyCode.T))
+    {
+        OnCoralReefCompleted();
+    }
+}
+
     void OnCoralReefCompleted()
     {
         StartCoroutine(UnlockSequence());
@@ -31,17 +41,15 @@ public class KelpWallUnlock : MonoBehaviour
         fishPlayerInput playerInput = FindObjectOfType<fishPlayerInput>();
         if (playerInput != null) playerInput.enabled = false;
 
+        
         // 2. Switch to kelp wall camera
         kelpWallCamera.Priority = 99;
 
-        // 3. Wait until kelp wall camera is the highest priority (one frame for blend to start)
-        yield return null;
+        // 3. Wait until the blend is fully complete
         yield return new WaitUntil(() => kelpWallCamera.Priority > playerCamera.Priority);
+        yield return new WaitForSeconds(1.2f); // wait for full blend to finish
 
-        // small pause to let the shot settle
-        yield return new WaitForSeconds(0.8f);
-
-        // 4. Trigger animation
+        // 4. NOW trigger the animation
         kelpWallAnimator.SetTrigger(openAnimationTrigger);
 
         // 5. Wait for animation to finish
@@ -60,4 +68,5 @@ public class KelpWallUnlock : MonoBehaviour
         // 9. Re-enable player
         if (playerInput != null) playerInput.enabled = true;
     }
+    #endregion
 }
