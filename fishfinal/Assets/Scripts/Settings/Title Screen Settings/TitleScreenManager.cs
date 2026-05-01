@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class TitleScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject titleScreenPanel;
-    [SerializeField] private string gameSceneName = "GameScene"; // your scene name
 
     void Start()
     {
@@ -20,9 +19,10 @@ public class TitleScreenManager : MonoBehaviour
 
     public void OnStartGame()
     {
-        titleScreenPanel.SetActive(false);
-        Time.timeScale = 1f; 
+    titleScreenPanel.SetActive(false);
+    InstructionsManager.Instance.Show();
     }
+
 
     public void OnExitGame()
     {
