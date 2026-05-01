@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 566154577942444428}
   - component: {fileID: 2133260619028009729}
   - component: {fileID: 8501991602236959916}
+  - component: {fileID: 6012189698458244041}
   m_Layer: 0
   m_Name: Seaweed_LightGreen_13
   m_TagString: Untagged
@@ -113,3 +114,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 680659ec01230e140b361456fbb50f1e, type: 2}
+--- !u!205 &6012189698458244041
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984470256377955652}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.32109833, y: 5.7182693, z: 0.16988969}
+  m_Size: 11.651831
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2133260619028009729}
+  m_Enabled: 1
