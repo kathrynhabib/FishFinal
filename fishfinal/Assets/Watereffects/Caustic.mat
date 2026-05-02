@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Caustic
   m_Shader: {fileID: -6465566751694194690, guid: a9273f2edf1354bdd81c9e3511adcaa1, type: 3}
-  m_Parent: {fileID: 2100000, guid: 3249dea269bb74a19b9c145b95a78c45, type: 2}
+  m_Parent: {fileID: 2100000, guid: 469cc15ba7204463281ec02b256b00e1, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []

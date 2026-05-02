@@ -2,6 +2,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;   
 
+[System.Serializable]
+public class RegionData
+{   
+    #region Claude generated
+    public string regionName;
+    public List<FishData> requiredFish;
+    public UnityEvent onCompleted;
+    [HideInInspector] public bool unlocked = false;
+    #endregion
+}
+
 public class FishDiscoveryManager : MonoBehaviour
 {
 
@@ -16,12 +27,10 @@ public class FishDiscoveryManager : MonoBehaviour
 
     public int totalFish = 38;  
 
-    //new
-    [Header("Region Unlock")]
-    public List<FishData> coralReefFish;        
-    public UnityEvent onCoralReefCompleted;
-    private bool coralReefUnlocked = false;
-    //new 
+    #region Claude generated
+    [Header("Regions")]
+    public List<RegionData> regions;
+    #endregion
 
     void Awake()
     {
@@ -50,26 +59,37 @@ public class FishDiscoveryManager : MonoBehaviour
             if (EncyclopediaManagerScript.Instance != null) EncyclopediaManagerScript.Instance.printEntries();
             else Debug.LogError("EncyclopediaManagerScript.Instance is null!");
 
-            CheckCoralReefComplete(); //new
+            CheckAllRegions(); //Claude generated
         }
     }
 
-    //new
-    void CheckCoralReefComplete()
+    #region Claude generated
+    void CheckAllRegions()
     {
-        if (coralReefUnlocked) return;
-        if (coralReefFish == null || coralReefFish.Count == 0) return;
-
-        foreach (FishData fish in coralReefFish)
+        foreach (RegionData region in regions)
         {
-            if (!discovered.Contains(fish)) return;
-        }
+            if (region.unlocked) continue;
+            if (region.requiredFish == null || region.requiredFish.Count == 0) continue;
 
-        coralReefUnlocked = true;
-        Debug.Log("Coral reef complete! Firing unlock event.");
-        onCoralReefCompleted?.Invoke();
+            bool complete = true;
+            foreach (FishData fish in region.requiredFish)
+            {
+                if (!discovered.Contains(fish))
+                {
+                    complete = false;
+                    break;
+                }
+            }
+
+            if (complete)
+            {
+                region.unlocked = true;
+                Debug.Log(region.regionName + " complete!");
+                region.onCompleted?.Invoke();
+            }
+        }
     }
-    //new
+    #endregion
 
     public HashSet<FishData> GetDiscoveredFish()
     {
