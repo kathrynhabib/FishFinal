@@ -1442,7 +1442,7 @@ PrefabInstance:
       objectReference: {fileID: 325944796}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -148558447315761640, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: outlineMode
@@ -1963,7 +1963,7 @@ PrefabInstance:
       objectReference: {fileID: 1118015230}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -2117,7 +2117,7 @@ PrefabInstance:
       objectReference: {fileID: 480422118}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -3416,7 +3416,7 @@ PrefabInstance:
       objectReference: {fileID: 831213148}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -148558447315761640, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Enabled
@@ -3523,7 +3523,7 @@ PrefabInstance:
       objectReference: {fileID: 949785034}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -3977,7 +3977,7 @@ PrefabInstance:
       objectReference: {fileID: 1085784595}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -4059,7 +4059,7 @@ PrefabInstance:
       objectReference: {fileID: 1103868542}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -4583,7 +4583,7 @@ PrefabInstance:
       objectReference: {fileID: 1247642088}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -5881,7 +5881,7 @@ PrefabInstance:
       objectReference: {fileID: 1454193218}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -6280,7 +6280,7 @@ PrefabInstance:
       objectReference: {fileID: 1553947450}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
@@ -7553,7 +7553,7 @@ PrefabInstance:
       objectReference: {fileID: 2007990040}
     - target: {fileID: -861571628668695728, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
       propertyPath: m_Name
