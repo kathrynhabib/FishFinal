@@ -33,5 +33,5 @@ public class FishData : ScriptableObject
     public float cameraRadius; 
 }
 
-public enum Biome { All, Reef, DeepSea, OpenOcean, KelpForest }
+public enum Biome { All, Reef, KelpForest, OpenOcean, DeepSea}
 //outside so fishdata and encyclopedia can reference it without FishData.Biome reference

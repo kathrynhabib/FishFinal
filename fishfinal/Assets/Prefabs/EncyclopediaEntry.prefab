@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -198, y: -23}
+  m_AnchoredPosition: {x: -201, y: -99.99}
   m_SizeDelta: {x: -418.0901, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1760226772493339311
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 662986046616979577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c0b7a010bfb477cb535831ecd733dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4679a9245d1f24733b199f251c72d46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EncyclopediaEntry
   fishImage: {fileID: 4872539504998231017}
@@ -289,8 +289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.40991, y: -85}
-  m_SizeDelta: {x: 123.40991, y: 0}
+  m_AnchoredPosition: {x: 210, y: -85}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &5694565043992501377
 CanvasRenderer:
