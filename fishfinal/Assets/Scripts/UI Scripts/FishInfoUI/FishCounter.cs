@@ -9,7 +9,7 @@ public class FishCounter : MonoBehaviour
 
     void Start()
     {
-    counterText.text = "0/0";
+    counterText.text = "0/12";
     }   
 
     public void UpdateCount(int current, int total)
