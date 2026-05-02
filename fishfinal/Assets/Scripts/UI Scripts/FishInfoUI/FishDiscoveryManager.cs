@@ -56,7 +56,7 @@ public class FishDiscoveryManager : MonoBehaviour
             if (counter != null) counter.UpdateCount(discovered.Count, totalFish);
             else Debug.LogError("counter is null!");
 
-            if (EncyclopediaManagerScript.Instance != null) EncyclopediaManagerScript.Instance.printEntries();
+            if (EncyclopediaManagerScript.Instance != null) EncyclopediaManagerScript.Instance.PrintEntries();
             else Debug.LogError("EncyclopediaManagerScript.Instance is null!");
 
             CheckAllRegions(); //Claude generated

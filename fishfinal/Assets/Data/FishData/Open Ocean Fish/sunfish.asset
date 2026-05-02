@@ -19,6 +19,7 @@ MonoBehaviour:
     nutritious meals in the ocean. To warm up after deep cold-water dives, they float
     flat on their side at the surface, which is how they got their name. "
   <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  biome: 3
   modelPrefab: {fileID: 8182045141744327734, guid: c23fc07c48e203d4e90ca1926a486784, type: 3}
   acceleration: 5
   turnSpeed: 3

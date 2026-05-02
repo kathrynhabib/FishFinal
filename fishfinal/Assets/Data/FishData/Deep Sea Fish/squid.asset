@@ -20,6 +20,7 @@ MonoBehaviour:
     learning. In a pinch, they can sacrifice a tentacle to a predator and simply
     grow it back. '
   <fishImage>k__BackingField: {fileID: 21300000, guid: ef2d2458d0d2645efb0382e3d329b2ad, type: 3}
+  biome: 2
   modelPrefab: {fileID: 8935245832872292702, guid: 2009ac34c6c6a70439eed4488910b525, type: 3}
   acceleration: 5
   turnSpeed: 3

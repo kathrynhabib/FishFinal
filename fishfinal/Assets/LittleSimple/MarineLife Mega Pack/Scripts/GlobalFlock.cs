@@ -37,6 +37,8 @@ public class GlobalFlock : MonoBehaviour
 									  Random.Range(-tankSizeZS, tankSizeZS));
 
 			allFish[i] = (GameObject)Instantiate(fishPrefab, pos, Quaternion.identity);
+			Debug.Log("Spawned fish at: " + pos);
+
 
 			//allFish[i].AddComponent<Flock>();
 		}

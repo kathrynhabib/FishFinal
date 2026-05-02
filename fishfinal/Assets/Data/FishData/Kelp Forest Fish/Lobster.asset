@@ -20,6 +20,7 @@ MonoBehaviour:
     common in North America that they were considered poor people's food \u2014 quite
     the glow-up for today's dinner plate delicacy. "
   <fishImage>k__BackingField: {fileID: 21300000, guid: e5b9d4c88daf643cbbdcb2da06bf3379, type: 3}
+  biome: 4
   modelPrefab: {fileID: 2921414289500555329, guid: 214eb14885bce434898e833fa0e729ca, type: 3}
   acceleration: 5
   turnSpeed: 3

@@ -19,6 +19,7 @@ MonoBehaviour:
     bodies and forked tails, and they never fully stop swimming because they need
     constant water flowing over their gills just to breathe."
   <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  biome: 3
   modelPrefab: {fileID: 8781681630523318649, guid: ca997d31b0dbcd24a87496dd4235e8f9, type: 3}
   acceleration: 5
   turnSpeed: 3

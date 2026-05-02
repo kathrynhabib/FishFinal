@@ -20,6 +20,7 @@ MonoBehaviour:
     called the golden ratio. They were so abundant that scientists use their fossils
     as a clock to date ancient rock layers. "
   <fishImage>k__BackingField: {fileID: 21300000, guid: 4899965a7c66e4ee48fe4a97a86f1c8f, type: 3}
+  biome: 2
   modelPrefab: {fileID: 5112824725092009841, guid: 31a9df5b0b4b08d4d9792ef0ef7cc525, type: 3}
   acceleration: 5
   turnSpeed: 3
