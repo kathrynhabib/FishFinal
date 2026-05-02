@@ -38,6 +38,7 @@ public class fishPlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftAlt)) // transform
         {
+            Debug.Log("transforming ability triggered");
             abilityController.ActivateAbility(1);
         }
     }

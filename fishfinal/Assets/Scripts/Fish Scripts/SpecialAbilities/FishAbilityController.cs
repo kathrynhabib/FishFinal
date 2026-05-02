@@ -11,6 +11,7 @@ public class FishAbilityController : MonoBehaviour
     
     public void ActivateAbility(int index)
     {
+
         if (index < 0 || index >= abilities.Length)
         {
             return;

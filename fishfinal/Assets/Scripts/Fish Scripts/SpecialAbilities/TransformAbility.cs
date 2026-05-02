@@ -1,28 +1,29 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class TransformAbility : MonoBehaviour, ISpecialAbility
 {
-    [SerializeField] private GameObject[] models;
     [SerializeField] private float coolDown = 5f;
 
     private int currentIdx = 0;
     private float cooldownTimer;
-    private Rigidbody rb;
+    private List<GameObject> models = new List<GameObject>();
 
     public bool IsReady => cooldownTimer <= 0f;
     public float Cooldown => coolDown;
 
-    private void Awake()
+    private System.Action<GameObject> onModelChanged;
+
+    public void RegisterModel(GameObject model)
     {
-        for (int i = 0; i < models.Length; i++)
-        {
-            models[i].SetActive(i == 0);
-        }
+        models.Add(model);
+        model.SetActive(models.Count == 1);
     }
+
     private void Update()
     {
-        if (coolDown > 0f)
+        if (cooldownTimer > 0f)
         {
             cooldownTimer -= Time.deltaTime;
         }
@@ -30,7 +31,7 @@ public class TransformAbility : MonoBehaviour, ISpecialAbility
     public void Activate()
     {
         models[currentIdx].SetActive(false);
-        currentIdx = (currentIdx + 1) % models.Length;
+        currentIdx = (currentIdx + 1) % models.Count;
         models[currentIdx].SetActive(true);
         cooldownTimer = coolDown;
     }
