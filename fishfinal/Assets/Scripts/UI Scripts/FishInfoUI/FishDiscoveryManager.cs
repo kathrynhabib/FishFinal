@@ -5,18 +5,17 @@ using System.Collections.Generic;
 [System.Serializable]
 public class RegionData
 {   
-    #region Claude generated
+    
     public string regionName;
     public List<FishData> requiredFish;
     public UnityEvent onCompleted;
     [HideInInspector] public bool unlocked = false;
-    #endregion
+    
 }
 
 public class FishDiscoveryManager : MonoBehaviour
 {
 
-// Singleton that tracks which fish have been discovered and notifies UI.
 // HashSet reference: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
 
     public static FishDiscoveryManager Instance { get; private set; }
@@ -63,7 +62,6 @@ public class FishDiscoveryManager : MonoBehaviour
         }
     }
 
-    #region Claude generated
     void CheckAllRegions()
     {
         foreach (RegionData region in regions)
@@ -89,7 +87,6 @@ public class FishDiscoveryManager : MonoBehaviour
             }
         }
     }
-    #endregion
 
     public HashSet<FishData> GetDiscoveredFish()
     {
