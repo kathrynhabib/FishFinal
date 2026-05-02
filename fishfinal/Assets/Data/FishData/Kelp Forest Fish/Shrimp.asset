@@ -20,6 +20,7 @@ MonoBehaviour:
     up stations on reefs where fish line up to have parasites picked off \u2014 a
     full-service spa, underwater style."
   <fishImage>k__BackingField: {fileID: 21300000, guid: f4f3f26aae80f470093ee4971b450867, type: 3}
+  biome: 4
   modelPrefab: {fileID: 5805742676095273600, guid: 377c93a17029b1847b84cc5aba145e6a, type: 3}
   acceleration: 8
   turnSpeed: 3

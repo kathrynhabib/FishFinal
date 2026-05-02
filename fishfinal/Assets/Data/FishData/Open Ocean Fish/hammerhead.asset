@@ -20,6 +20,7 @@ MonoBehaviour:
     under sand. They also commonly school in large groups during the day, which is
     unusual behavior for sharks. "
   <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  biome: 3
   modelPrefab: {fileID: 2213127124792099078, guid: fbf23f8b9073ca941a795ccd800239da, type: 3}
   acceleration: 5
   turnSpeed: 3

@@ -8,6 +8,9 @@ public class FishData : ScriptableObject
     [field:SerializeField] public string fishFact {get; private set;}
     [field:SerializeField] public Sprite fishImage {get; private set;}
 
+    [Header("Biome")]
+    public Biome biome;
+
     [Header("Model")]
     public GameObject modelPrefab;
 
@@ -19,6 +22,7 @@ public class FishData : ScriptableObject
     public bool horizontalEnabled;
     public bool verticalEnabled;
 
+
     //[Header("AI Movement")]
     //public fishBehavior behaviorType;
 
@@ -28,3 +32,6 @@ public class FishData : ScriptableObject
     [Header("Camera distance")]
     public float cameraRadius; 
 }
+
+public enum Biome { All, Reef, DeepSea, OpenOcean, KelpForest }
+//outside so fishdata and encyclopedia can reference it without FishData.Biome reference

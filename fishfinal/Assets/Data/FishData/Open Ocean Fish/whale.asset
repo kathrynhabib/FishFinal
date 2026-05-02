@@ -20,6 +20,7 @@ MonoBehaviour:
     Whales also play a huge role in ocean health: their nutrient-rich waste feeds
     the plankton that produce half of Earth's oxygen."
   <fishImage>k__BackingField: {fileID: 21300000, guid: 7a852a48ca4e64eb78db56c327565f7c, type: 3}
+  biome: 3
   modelPrefab: {fileID: 4440015863153704474, guid: 9ffd15d7289f8324f912ce483f1e29b0, type: 3}
   acceleration: 5
   turnSpeed: 3

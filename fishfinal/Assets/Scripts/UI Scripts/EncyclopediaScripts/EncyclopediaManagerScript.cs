@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Linq;
+//citation for linq: https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/write-linq-queries
 
 public class EncyclopediaManagerScript : MonoBehaviour
 {
@@ -7,42 +9,42 @@ public class EncyclopediaManagerScript : MonoBehaviour
     [SerializeField] public GameObject EncyclopediaEntry;
     [SerializeField] public Transform Content;
 
+    private Biome currentBiome = Biome.All;
+
     void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
     }
 
-    void Start()
+    void Start() { PrintEntries(); }
+    void OnEnable() { PrintEntries(); }
+
+    public void FilterByBiome(int biome)
     {
-        printEntries(); 
+        currentBiome = (Biome)biome;
+        PrintEntries();
     }
 
-    void OnEnable()
+    #region claude generated method
+    public void PrintEntries()
     {
-        printEntries();
-    }
+        if (FishDiscoveryManager.Instance == null) return;
 
-    public void printEntries()
-    #region Claude generated
-    {
-         if (FishDiscoveryManager.Instance == null)
-        {
-            Debug.LogError("FishDiscoveryManager.Instance is null!");
-            return;
-        }
-        foreach(Transform entry in Content )
-        {
+        foreach (Transform entry in Content)
             Destroy(entry.gameObject);
-        }
 
-        var discoveredFish = FishDiscoveryManager.Instance.GetDiscoveredFish();
+        var discovered = FishDiscoveryManager.Instance.GetDiscoveredFish();
 
-        foreach (FishData fish in discoveredFish)
+        var filtered = currentBiome == Biome.All
+            ? discovered
+            : discovered.Where(f => f.biome == currentBiome);
+
+        foreach (FishData fish in filtered)
         {
             GameObject entry = Instantiate(EncyclopediaEntry, Content);
             entry.GetComponent<EncyclopediaEntry>().Setup(fish);
         }
     }
-    #endregion 
+    #endregion
 }
