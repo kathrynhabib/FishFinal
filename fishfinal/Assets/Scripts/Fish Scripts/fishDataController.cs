@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Multiplayer.PlayMode;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,15 +23,17 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
     //private fishDataController selectedFish;
     private Outline outline;
+    private CapsuleCollider collider;
 
     // should also now provide camera offset dimensions to the cinemachine, along w a setting for mouse sens
     public GameObject thisPrefab;
     private Rigidbody rb;
 
     // for adding highlights to selectable fish
-    public float selectableRadius = 50f;
+    public float selectableRadius = 200f;
     private List<fishDataController> highlightedFish = new List<fishDataController>();
-    //public LayerMask fishLayer;
+    public LayerMask fishLayer;
+    private fishDataController currentLookTarget;
 
     void Start()
     {
@@ -63,7 +66,8 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     {
         if (!isPlayer) return;
         if (SwitchConfirmPopup.Instance != null && SwitchConfirmPopup.Instance.IsOpen) return;
-        highlightNearby();
+        //highlightNearby();
+        updateLookTarget();
     }
 
     void applyFishData()
@@ -103,12 +107,20 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
             if (outline == null)
                 outline = model.AddComponent<Outline>();
 
+            collider = model.GetComponent<CapsuleCollider>();
+
+            if (collider == null)
+            {
+                collider = model.AddComponent<CapsuleCollider>();
+                collider.radius = FishData.colliderRadius;
+            }
+
             outline.enabled = false;
         }
 
     }
 
-    void highlightNearby()
+    /*void highlightNearby()
     {
         foreach (var fish in highlightedFish) // refreshing
         {
@@ -119,25 +131,73 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         }
         highlightedFish.Clear();
 
-        //Collider[] hits = Physics.OverlapSphere(transform.position, selectableRadius, fishLayer);
+        *//*Ray ray = this.mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 100f))
+        {
+            fishDataController targetFish = hit.collider.GetComponentInParent<fishDataController>();
+
+            if (targetFish != null && targetFish != this && targetFish.tag == "fish")
+            {
+                targetFish.setHighlight(Color.yellow);
+
+            }
+        }*//*
+
         Collider[] hits = Physics.OverlapSphere(transform.position, selectableRadius);
+        Debug.Log(hits.Length);
+
+        foreach (var hit in hits)
+        {
+            Debug.Log("Hit: " + hit.name);
+        }
 
 
         foreach (var hit in hits)
         {
-            if (!hit.CompareTag("fish")) continue;
+            fishDataController toHighlight = hit.GetComponentInParent<fishDataController>();
 
-            fishDataController toHighlight = hit.GetComponent<fishDataController>();
-            Debug.Log(toHighlight.FishData.name + "in toHighlight");
-            if (toHighlight != null && toHighlight != this)
+            if (toHighlight == null || toHighlight == this)
+                continue;
+
+            if (!toHighlight.CompareTag("fish"))
+                continue;
+
+            // Skip the one you're currently looking at (it should stay white)
+            if (toHighlight == currentLookTarget)
+                continue;
+
+            toHighlight.setHighlight(Color.yellow);
+            highlightedFish.Add(toHighlight);
+        }
+    }*/
+
+    private void updateLookTarget()
+    {
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 100f))
+        {
+            fishDataController newTarget = hit.collider.GetComponentInParent<fishDataController>();
+
+            if (newTarget != null && newTarget != this && newTarget.CompareTag("fish"))
             {
-                toHighlight.setHighlight(Color.yellow);
-                highlightedFish.Add(toHighlight);
+                if (currentLookTarget != null && currentLookTarget != newTarget)
+                {
+                    clearSelection(currentLookTarget);
+                }
 
-                Debug.Log(toHighlight.FishData.fishName);
+                currentLookTarget = newTarget;
+                currentLookTarget.setHighlight(Color.white);
+                return;
             }
         }
 
+        if (currentLookTarget != null)
+        {
+            clearSelection(currentLookTarget);
+            currentLookTarget = null;
+        }
     }
 
     public void setHighlight(Color color)
@@ -145,8 +205,13 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         if (outline != null)
         {
             Debug.Log("highlighting this " + FishData.name + " dih" + color);
+            if (outline.enabled && outline.OutlineColor == Color.white && color != Color.white)
+            {
+                return;
+            }
             outline.enabled = true;
             outline.OutlineColor = color;
+            outline.OutlineWidth = 6;
         }
     }
 
