@@ -28,9 +28,9 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     private Rigidbody rb;
 
     // for adding highlights to selectable fish
-    public float selectableRadius;
+    public float selectableRadius = 50f;
     private List<fishDataController> highlightedFish = new List<fishDataController>();
-    public LayerMask fishLayer;
+    //public LayerMask fishLayer;
 
     void Start()
     {
@@ -93,7 +93,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
             {
                 Destroy(child.gameObject);
 
-                Debug.Log(gameObject.name + " was destroyed!");
+                //Debug.Log(gameObject.name + " was destroyed!");
             }
 
             GameObject model = Instantiate(FishData.modelPrefab, modelContainer);
@@ -119,11 +119,16 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         }
         highlightedFish.Clear();
 
-        Collider[] hits = Physics.OverlapSphere(transform.position, selectableRadius, fishLayer);
+        //Collider[] hits = Physics.OverlapSphere(transform.position, selectableRadius, fishLayer);
+        Collider[] hits = Physics.OverlapSphere(transform.position, selectableRadius);
+
 
         foreach (var hit in hits)
         {
+            if (!hit.CompareTag("fish")) continue;
+
             fishDataController toHighlight = hit.GetComponent<fishDataController>();
+            Debug.Log(toHighlight.FishData.name + "in toHighlight");
             if (toHighlight != null && toHighlight != this)
             {
                 toHighlight.setHighlight(Color.yellow);
@@ -139,7 +144,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
     {
         if (outline != null)
         {
-            Debug.Log("highlighting this dih");
+            Debug.Log("highlighting this " + FishData.name + " dih" + color);
             outline.enabled = true;
             outline.OutlineColor = color;
         }
@@ -182,6 +187,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         PlayerFishTracker.Current = transform;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.isKinematic = false;
 
         SwitchManager.Instance.AssignPlayer(this);
     }
@@ -201,6 +207,7 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         rb.interpolation = RigidbodyInterpolation.None;
         rb.collisionDetectionMode = CollisionDetectionMode.Discrete;
+
     }
 }
 
