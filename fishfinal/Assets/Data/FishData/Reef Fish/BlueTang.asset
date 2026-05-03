@@ -13,15 +13,9 @@ MonoBehaviour:
   m_Name: BlueTang
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: blue tang
-  <fishFact>k__BackingField: "Dory is a Blue Tang! Bright blue with a yellow tail,
-    the blue tang is hard to miss on a coral reef. They're herbivores, grazing on
-    algae all day long \u2014 which makes them surprisingly important for keeping
-    reefs healthy. They also have a small but sharp spine near the tail, so handle
-    with care! "
-  <fishImage>k__BackingField: {fileID: 21300000, guid: 5c97e0d6b5a2a4584a207b247d052dc3, type: 3}
-  biome: 1
-  modelPrefabs:
-  - {fileID: 9031231417089602193, guid: b253d6e13bb0a9845a1529c15d957f44, type: 3}
+  <fishFact>k__BackingField: dory is a blue tang
+  <fishImage>k__BackingField: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}
+  modelPrefab: {fileID: 9031231417089602193, guid: b253d6e13bb0a9845a1529c15d957f44, type: 3}
   acceleration: 5
   turnSpeed: 4
   slowingSpeed: 0.995

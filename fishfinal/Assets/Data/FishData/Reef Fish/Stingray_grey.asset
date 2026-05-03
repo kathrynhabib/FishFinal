@@ -13,14 +13,9 @@ MonoBehaviour:
   m_Name: Stingray_grey
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: grey stingray
-  <fishFact>k__BackingField: "One of the larger ray species, grey stingrays are often
-    spotted gliding effortlessly along reef edges and sandy flats. They're curious
-    creatures and are known to approach divers, sometimes in groups \u2014 an experience
-    that's equal parts thrilling and magical. "
-  <fishImage>k__BackingField: {fileID: 21300000, guid: 9104893ff12b9400d855a9c79f18478d, type: 3}
-  biome: 1
-  modelPrefabs:
-  - {fileID: 1692793497532764868, guid: 300051a2ac0e1ff4c92d0c7c07fb7efc, type: 3}
+  <fishFact>k__BackingField: stingrays belong to a group called "batoids"
+  <fishImage>k__BackingField: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}
+  modelPrefab: {fileID: 1692793497532764868, guid: 300051a2ac0e1ff4c92d0c7c07fb7efc, type: 3}
   acceleration: 10
   turnSpeed: 4
   slowingSpeed: 0.995
