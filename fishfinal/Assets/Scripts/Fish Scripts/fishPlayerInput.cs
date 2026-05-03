@@ -36,10 +36,6 @@ public class fishPlayerInput : MonoBehaviour
             abilityController.ActivateAbility(0);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) // transform
-        {
-            abilityController.ActivateAbility(1);
-        }
     }
 
     void FixedUpdate()
