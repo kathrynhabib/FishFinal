@@ -91,6 +91,8 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
 
         /* the 13 lines below are AI generated*/
         Transform modelContainer = transform.Find("ModelContainer");
+        TransformAbility transformAbility = GetComponent<TransformAbility>();
+
         if (modelContainer != null)
         {
             foreach (Transform child in modelContainer)
@@ -100,23 +102,25 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
                 //Debug.Log(gameObject.name + " was destroyed!");
             }
 
-            GameObject model = Instantiate(FishData.modelPrefab, modelContainer);
-
-            outline = model.GetComponent<Outline>();
-
-            if (outline == null)
-                outline = model.AddComponent<Outline>();
-
-            collider = model.GetComponent<CapsuleCollider>();
-
-            if (collider == null)
+            foreach (var prefab in FishData.modelPrefabs)
             {
-                collider = model.AddComponent<CapsuleCollider>();
-                collider.radius = FishData.colliderRadius;
+                GameObject model = Instantiate(prefab, modelContainer);
+                instantiateModel(model);
+
+                if (transformAbility != null)
+                    transformAbility.RegisterModel(model);
             }
 
-            outline.enabled = false;
         }
+
+    }
+
+    private void instantiateModel(GameObject model)
+    {
+        outline = model.GetComponent<Outline>();
+        if (outline == null)
+            outline = model.AddComponent<Outline>();
+        outline.enabled = false;
 
     }
 
@@ -200,11 +204,27 @@ public class fishDataController : MonoBehaviour // contains the data bound to ea
         }
     }
 
+    private Outline getActiveOutline()
+    {
+        Transform modelContainer = transform.Find("ModelContainer");
+        if (modelContainer == null) return null;
+
+        foreach (Transform child in modelContainer)
+        {
+            if (child.gameObject.activeSelf)
+                return child.GetComponent<Outline>();
+        }
+        return null;
+    }
+
+
     public void setHighlight(Color color)
     {
+        outline = getActiveOutline();
+
         if (outline != null)
         {
-            Debug.Log("highlighting this " + FishData.name + " dih" + color);
+            //Debug.Log("highlighting this " + FishData.name + " dih" + color);
             if (outline.enabled && outline.OutlineColor == Color.white && color != Color.white)
             {
                 return;

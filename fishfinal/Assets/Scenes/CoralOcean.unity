@@ -4112,13 +4112,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1103868551}
   m_SourcePrefab: {fileID: 100100000, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
 --- !u!1 &1103868542 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
   m_PrefabInstance: {fileID: 1103868541}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1103868551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103868542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7358f682078d6cc46af16a151b7660ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransformAbility
+  coolDown: 5
 --- !u!1 &1118015230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532881155215545493, guid: 3a35552aab1dfa54fa2c815503dd385a, type: 3}
@@ -7628,9 +7644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7358f682078d6cc46af16a151b7660ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransformAbility
-  models:
-  - {fileID: 2615873326568862253, guid: 5c0d17115700f1d43b18e426d0111415, type: 3}
-  - {fileID: 5876045278795191282, guid: 6d465830704e1354e8f455c9c725516b, type: 3}
   coolDown: 5
 --- !u!1 &2014136515
 GameObject:
