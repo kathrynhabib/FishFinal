@@ -12,7 +12,7 @@ public class FishData : ScriptableObject
     public Biome biome;
 
     [Header("Model")]
-    public GameObject modelPrefab;
+    public GameObject[] modelPrefabs;
 
     [Header("Player Movement")]
     public float acceleration;
