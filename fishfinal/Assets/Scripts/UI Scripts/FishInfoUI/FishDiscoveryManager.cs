@@ -1,21 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
 using System.Collections.Generic;   
-
-[System.Serializable]
-public class RegionData
-{   
-    
-    public string regionName;
-    public List<FishData> requiredFish;
-    public UnityEvent onCompleted;
-    [HideInInspector] public bool unlocked = false;
-    
-}
 
 public class FishDiscoveryManager : MonoBehaviour
 {
 
+// Singleton that tracks which fish have been discovered and notifies UI.
 // HashSet reference: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
 
     public static FishDiscoveryManager Instance { get; private set; }
@@ -24,12 +13,7 @@ public class FishDiscoveryManager : MonoBehaviour
     public FishCounter counter;
     private HashSet<FishData> discovered = new HashSet<FishData>();
 
-    public int totalFish = 38;  
-
-    #region Claude generated
-    [Header("Regions")]
-    public List<RegionData> regions;
-    #endregion
+    public int totalFish = 10;   // REMEMBER TO CHANGE 
 
     void Awake()
     {
@@ -55,36 +39,8 @@ public class FishDiscoveryManager : MonoBehaviour
             if (counter != null) counter.UpdateCount(discovered.Count, totalFish);
             else Debug.LogError("counter is null!");
 
-            if (EncyclopediaManagerScript.Instance != null) EncyclopediaManagerScript.Instance.PrintEntries();
+            if (EncyclopediaManagerScript.Instance != null) EncyclopediaManagerScript.Instance.printEntries();
             else Debug.LogError("EncyclopediaManagerScript.Instance is null!");
-
-            CheckAllRegions(); //Claude generated
-        }
-    }
-
-    void CheckAllRegions()
-    {
-        foreach (RegionData region in regions)
-        {
-            if (region.unlocked) continue;
-            if (region.requiredFish == null || region.requiredFish.Count == 0) continue;
-
-            bool complete = true;
-            foreach (FishData fish in region.requiredFish)
-            {
-                if (!discovered.Contains(fish))
-                {
-                    complete = false;
-                    break;
-                }
-            }
-
-            if (complete)
-            {
-                region.unlocked = true;
-                Debug.Log(region.regionName + " complete!");
-                region.onCompleted?.Invoke();
-            }
         }
     }
 

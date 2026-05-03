@@ -13,12 +13,8 @@ MonoBehaviour:
   m_Name: Flatfish
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   <fishName>k__BackingField: flatfish
-  <fishFact>k__BackingField: "Flatfish start life looking like normal fish \u2014
-    but as they grow, one eye slowly migrates to the other side of their head! They
-    then spend their adult lives lying flat on the seafloor, perfectly camouflaged,
-    waiting to ambush unsuspecting prey from below. "
-  <fishImage>k__BackingField: {fileID: 21300000, guid: 280089948953b4a74828b1b45f6685f8, type: 3}
-  biome: 1
+  <fishFact>k__BackingField: flatfish
+  <fishImage>k__BackingField: {fileID: 21300000, guid: d87a7c9166e504a1188ef3bec954b3be, type: 3}
   modelPrefab: {fileID: 1692793497532764868, guid: 300051a2ac0e1ff4c92d0c7c07fb7efc, type: 3}
   acceleration: 10
   turnSpeed: 4
